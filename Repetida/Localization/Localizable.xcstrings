@@ -11,7 +11,7 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$lld/%2$lld"
           }
         }
@@ -74,14 +74,21 @@
       }
     },
     "album.page %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pág. %lld"
+          }
+        }
+      }
     },
     "album.pageRange %lld %lld" : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "album.pageRange %1$lld %2$lld"
+            "state" : "translated",
+            "value" : "Págs. %1$lld–%2$lld"
           }
         }
       }
@@ -190,8 +197,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "exchange.filter.teamChip %1$@ %2$lld"
+            "state" : "translated",
+            "value" : "%1$@ · %2$lld"
           }
         }
       }
@@ -210,8 +217,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "exchange.insight %1$lld %2$lld"
+            "state" : "translated",
+            "value" : "%1$lld repetidas · %2$lld brilhantes"
           }
         }
       }
@@ -277,13 +284,34 @@
       }
     },
     "exchange.share.overflowCopies %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+%lld repetidas disponíveis"
+          }
+        }
+      }
     },
     "exchange.share.quantity %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "×%lld"
+          }
+        }
+      }
     },
     "exchange.share.sheetHeadline %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld figurinhas para troca"
+          }
+        }
+      }
     },
     "exchange.share.showListPreview" : {
       "localizations" : {
@@ -316,7 +344,14 @@
       }
     },
     "exchange.share.total %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total: %lld figurinhas"
+          }
+        }
+      }
     },
     "exchange.share.tradingHeadlineLine2" : {
       "localizations" : {
@@ -412,8 +447,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "home.closestTeamSubtitle %1$@ %2$@"
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
           }
         }
       }
@@ -522,8 +557,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "home.stat.teamsAccessibility %1$lld %2$lld"
+            "state" : "translated",
+            "value" : "%1$lld de %2$lld seleções concluídas"
           }
         }
       }
@@ -539,7 +574,14 @@
       }
     },
     "home.teamFaltam %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faltam %lld"
+          }
+        }
+      }
     },
     "home.teamFaltaOne" : {
       "localizations" : {
@@ -645,8 +687,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "missing.filter.teamChip %1$@ %2$lld"
+            "state" : "translated",
+            "value" : "%1$@ · %2$lld"
           }
         }
       }
@@ -732,7 +774,14 @@
       }
     },
     "status.duplicate %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld repetidas"
+          }
+        }
+      }
     },
     "status.missing" : {
       "localizations" : {
@@ -755,7 +804,14 @@
       }
     },
     "status.ownedWithDuplicates %lld" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenho, %lld repetidas"
+          }
+        }
+      }
     },
     "tab.home" : {
       "localizations" : {
@@ -811,8 +867,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "teams.celebration.progress %1$lld %2$lld"
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld"
           }
         }
       }
@@ -871,8 +927,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "teams.pager.next %1$@ %2$@"
+            "state" : "translated",
+            "value" : "Próxima: %1$@ (%2$@)"
           }
         }
       }
@@ -881,8 +937,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "teams.pager.previous %1$@ %2$@"
+            "state" : "translated",
+            "value" : "Anterior: %1$@ (%2$@)"
           }
         }
       }
@@ -898,7 +954,14 @@
       }
     },
     "teams.picker.open %@" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir seletor de seleção, %@"
+          }
+        }
+      }
     },
     "teams.picker.title" : {
       "localizations" : {
@@ -914,8 +977,8 @@
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "teams.progress.label %1$lld %2$lld %3$lld"
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld · %3$lld%%"
           }
         }
       }
@@ -981,7 +1044,14 @@
       }
     },
     "teams.weAreTitle %@" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We Are %@"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

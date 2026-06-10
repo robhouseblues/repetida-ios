@@ -24,13 +24,12 @@ STRING_PARAM_HINTS = (
 
 
 def to_catalog_key(template: str) -> str:
-    def repl(match: re.Match[str]) -> str:
-        var = match.group(1).lower()
-        if any(hint in var for hint in STRING_PARAM_HINTS):
-            return "%@"
-        return "%lld"
-
-    return re.sub(r"\\(\w+)\)", repl, template)
+    result = template
+    for var in re.findall(r"\\\((\w+)\)", template):
+        var_lower = var.lower()
+        token = "%@" if any(hint in var_lower for hint in STRING_PARAM_HINTS) else "%lld"
+        result = result.replace(f"\\({var})", token, 1)
+    return result.strip()
 
 
 def referenced_keys() -> set[str]:
