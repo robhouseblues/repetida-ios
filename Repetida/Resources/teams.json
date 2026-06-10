@@ -1,0 +1,525 @@
+{
+  "teams": [
+    {
+      "id": "panini",
+      "code": "PANINI",
+      "name": "We Are Panini",
+      "albumPages": [
+        0
+      ],
+      "section": "panini"
+    },
+    {
+      "id": "fwc",
+      "code": "FWC",
+      "name": "FIFA World Cup 2026",
+      "albumPages": [
+        1,
+        2
+      ],
+      "section": "tournament"
+    },
+    {
+      "id": "host",
+      "code": "HOST",
+      "name": "Host Countries and Cities",
+      "albumPages": [
+        2,
+        3
+      ],
+      "section": "hosts"
+    },
+    {
+      "id": "hist",
+      "code": "HIST",
+      "name": "FIFA World Cup History",
+      "albumPages": [
+        106,
+        107,
+        108,
+        109
+      ],
+      "section": "history"
+    },
+    {
+      "id": "mex",
+      "code": "MEX",
+      "name": "Mexico",
+      "albumPages": [
+        8,
+        9
+      ],
+      "section": "national"
+    },
+    {
+      "id": "rsa",
+      "code": "RSA",
+      "name": "South Africa",
+      "albumPages": [
+        10,
+        11
+      ],
+      "section": "national"
+    },
+    {
+      "id": "kor",
+      "code": "KOR",
+      "name": "Korea Republic",
+      "albumPages": [
+        12,
+        13
+      ],
+      "section": "national"
+    },
+    {
+      "id": "cze",
+      "code": "CZE",
+      "name": "Czechia",
+      "albumPages": [
+        14,
+        15
+      ],
+      "section": "national"
+    },
+    {
+      "id": "can",
+      "code": "CAN",
+      "name": "Canada",
+      "albumPages": [
+        16,
+        17
+      ],
+      "section": "national"
+    },
+    {
+      "id": "bih",
+      "code": "BIH",
+      "name": "Bosnia-Herzegovina",
+      "albumPages": [
+        18,
+        19
+      ],
+      "section": "national"
+    },
+    {
+      "id": "qat",
+      "code": "QAT",
+      "name": "Qatar",
+      "albumPages": [
+        20,
+        21
+      ],
+      "section": "national"
+    },
+    {
+      "id": "sui",
+      "code": "SUI",
+      "name": "Switzerland",
+      "albumPages": [
+        22,
+        23
+      ],
+      "section": "national"
+    },
+    {
+      "id": "bra",
+      "code": "BRA",
+      "name": "Brazil",
+      "albumPages": [
+        24,
+        25
+      ],
+      "section": "national"
+    },
+    {
+      "id": "mar",
+      "code": "MAR",
+      "name": "Morocco",
+      "albumPages": [
+        26,
+        27
+      ],
+      "section": "national"
+    },
+    {
+      "id": "hai",
+      "code": "HAI",
+      "name": "Haiti",
+      "albumPages": [
+        28,
+        29
+      ],
+      "section": "national"
+    },
+    {
+      "id": "sco",
+      "code": "SCO",
+      "name": "Scotland",
+      "albumPages": [
+        30,
+        31
+      ],
+      "section": "national"
+    },
+    {
+      "id": "usa",
+      "code": "USA",
+      "name": "USA",
+      "albumPages": [
+        32,
+        33
+      ],
+      "section": "national"
+    },
+    {
+      "id": "par",
+      "code": "PAR",
+      "name": "Paraguay",
+      "albumPages": [
+        34,
+        35
+      ],
+      "section": "national"
+    },
+    {
+      "id": "aus",
+      "code": "AUS",
+      "name": "Australia",
+      "albumPages": [
+        36,
+        37
+      ],
+      "section": "national"
+    },
+    {
+      "id": "tur",
+      "code": "TUR",
+      "name": "T\u00fcrkiye",
+      "albumPages": [
+        38,
+        39
+      ],
+      "section": "national"
+    },
+    {
+      "id": "ger",
+      "code": "GER",
+      "name": "Germany",
+      "albumPages": [
+        40,
+        41
+      ],
+      "section": "national"
+    },
+    {
+      "id": "cuw",
+      "code": "CUW",
+      "name": "Cura\u00e7ao",
+      "albumPages": [
+        42,
+        43
+      ],
+      "section": "national"
+    },
+    {
+      "id": "civ",
+      "code": "CIV",
+      "name": "Côte d'Ivoire",
+      "albumPages": [
+        44,
+        45
+      ],
+      "section": "national"
+    },
+    {
+      "id": "ecu",
+      "code": "ECU",
+      "name": "Ecuador",
+      "albumPages": [
+        46,
+        47
+      ],
+      "section": "national"
+    },
+    {
+      "id": "ned",
+      "code": "NED",
+      "name": "Netherlands",
+      "albumPages": [
+        48,
+        49
+      ],
+      "section": "national"
+    },
+    {
+      "id": "jpn",
+      "code": "JPN",
+      "name": "Japan",
+      "albumPages": [
+        50,
+        51
+      ],
+      "section": "national"
+    },
+    {
+      "id": "swe",
+      "code": "SWE",
+      "name": "Sweden",
+      "albumPages": [
+        52,
+        53
+      ],
+      "section": "national"
+    },
+    {
+      "id": "tun",
+      "code": "TUN",
+      "name": "Tunisia",
+      "albumPages": [
+        54,
+        55
+      ],
+      "section": "national"
+    },
+    {
+      "id": "bel",
+      "code": "BEL",
+      "name": "Belgium",
+      "albumPages": [
+        58,
+        59
+      ],
+      "section": "national"
+    },
+    {
+      "id": "egy",
+      "code": "EGY",
+      "name": "Egypt",
+      "albumPages": [
+        60,
+        61
+      ],
+      "section": "national"
+    },
+    {
+      "id": "irn",
+      "code": "IRN",
+      "name": "IR Iran",
+      "albumPages": [
+        62,
+        63
+      ],
+      "section": "national"
+    },
+    {
+      "id": "nzl",
+      "code": "NZL",
+      "name": "New Zealand",
+      "albumPages": [
+        64,
+        65
+      ],
+      "section": "national"
+    },
+    {
+      "id": "esp",
+      "code": "ESP",
+      "name": "Spain",
+      "albumPages": [
+        66,
+        67
+      ],
+      "section": "national"
+    },
+    {
+      "id": "cpv",
+      "code": "CPV",
+      "name": "Cabo Verde",
+      "albumPages": [
+        68,
+        69
+      ],
+      "section": "national"
+    },
+    {
+      "id": "ksa",
+      "code": "KSA",
+      "name": "Saudi Arabia",
+      "albumPages": [
+        70,
+        71
+      ],
+      "section": "national"
+    },
+    {
+      "id": "uru",
+      "code": "URU",
+      "name": "Uruguay",
+      "albumPages": [
+        72,
+        73
+      ],
+      "section": "national"
+    },
+    {
+      "id": "fra",
+      "code": "FRA",
+      "name": "France",
+      "albumPages": [
+        74,
+        75
+      ],
+      "section": "national"
+    },
+    {
+      "id": "sen",
+      "code": "SEN",
+      "name": "Senegal",
+      "albumPages": [
+        76,
+        77
+      ],
+      "section": "national"
+    },
+    {
+      "id": "irq",
+      "code": "IRQ",
+      "name": "Iraq",
+      "albumPages": [
+        78,
+        79
+      ],
+      "section": "national"
+    },
+    {
+      "id": "nor",
+      "code": "NOR",
+      "name": "Norway",
+      "albumPages": [
+        80,
+        81
+      ],
+      "section": "national"
+    },
+    {
+      "id": "arg",
+      "code": "ARG",
+      "name": "Argentina",
+      "albumPages": [
+        82,
+        83
+      ],
+      "section": "national"
+    },
+    {
+      "id": "alg",
+      "code": "ALG",
+      "name": "Algeria",
+      "albumPages": [
+        84,
+        85
+      ],
+      "section": "national"
+    },
+    {
+      "id": "aut",
+      "code": "AUT",
+      "name": "Austria",
+      "albumPages": [
+        86,
+        87
+      ],
+      "section": "national"
+    },
+    {
+      "id": "jor",
+      "code": "JOR",
+      "name": "Jordan",
+      "albumPages": [
+        88,
+        89
+      ],
+      "section": "national"
+    },
+    {
+      "id": "por",
+      "code": "POR",
+      "name": "Portugal",
+      "albumPages": [
+        90,
+        91
+      ],
+      "section": "national"
+    },
+    {
+      "id": "cod",
+      "code": "COD",
+      "name": "Congo DR",
+      "albumPages": [
+        92,
+        93
+      ],
+      "section": "national"
+    },
+    {
+      "id": "uzb",
+      "code": "UZB",
+      "name": "Uzbekistan",
+      "albumPages": [
+        94,
+        95
+      ],
+      "section": "national"
+    },
+    {
+      "id": "col",
+      "code": "COL",
+      "name": "Colombia",
+      "albumPages": [
+        96,
+        97
+      ],
+      "section": "national"
+    },
+    {
+      "id": "eng",
+      "code": "ENG",
+      "name": "England",
+      "albumPages": [
+        98,
+        99
+      ],
+      "section": "national"
+    },
+    {
+      "id": "cro",
+      "code": "CRO",
+      "name": "Croatia",
+      "albumPages": [
+        100,
+        101
+      ],
+      "section": "national"
+    },
+    {
+      "id": "gha",
+      "code": "GHA",
+      "name": "Ghana",
+      "albumPages": [
+        102,
+        103
+      ],
+      "section": "national"
+    },
+    {
+      "id": "pan",
+      "code": "PAN",
+      "name": "Panama",
+      "albumPages": [
+        104,
+        105
+      ],
+      "section": "national"
+    }
+  ]
+}

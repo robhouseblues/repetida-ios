@@ -1,0 +1,988 @@
+{
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    "·" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld/%lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld"
+          }
+        }
+      }
+    },
+    "%lld%%" : {
+
+    },
+    "+%lld" : {
+
+    },
+    "action.addDuplicate" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar repetida"
+          }
+        }
+      }
+    },
+    "action.addDuplicateShort" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repet. +1"
+          }
+        }
+      }
+    },
+    "action.removeDuplicate" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover repetida"
+          }
+        }
+      }
+    },
+    "action.removeDuplicateShort" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repet. −1"
+          }
+        }
+      }
+    },
+    "action.toggleOwned" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alternar tenho"
+          }
+        }
+      }
+    },
+    "album.page %lld" : {
+
+    },
+    "album.pageRange %lld %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "album.pageRange %1$lld %2$lld"
+          }
+        }
+      }
+    },
+    "exchange.addCopy" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar repetida"
+          }
+        }
+      }
+    },
+    "exchange.addCopy.recent" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recentemente adicionadas"
+          }
+        }
+      }
+    },
+    "exchange.addCopy.sort" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar figurinhas"
+          }
+        }
+      }
+    },
+    "exchange.addCopySearchPlaceholder" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar figurinhas"
+          }
+        }
+      }
+    },
+    "exchange.copy.textList" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar lista em texto"
+          }
+        }
+      }
+    },
+    "exchange.dock.more" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar repetida"
+          }
+        }
+      }
+    },
+    "exchange.dock.remove" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover repetida"
+          }
+        }
+      }
+    },
+    "exchange.dragHint" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arraste uma figurinha para adicionar ou remover repetidas"
+          }
+        }
+      }
+    },
+    "exchange.filter.all" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas"
+          }
+        }
+      }
+    },
+    "exchange.filter.shiny" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brilhantes"
+          }
+        }
+      }
+    },
+    "exchange.filter.teamChip %@ %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "exchange.filter.teamChip %1$@ %2$lld"
+          }
+        }
+      }
+    },
+    "exchange.filter.twoOrMore" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+2 ou mais"
+          }
+        }
+      }
+    },
+    "exchange.insight %lld %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "exchange.insight %1$lld %2$lld"
+          }
+        }
+      }
+    },
+    "exchange.noDuplicates" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhuma repetida ainda"
+          }
+        }
+      }
+    },
+    "exchange.searchPlaceholder" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar figurinhas"
+          }
+        }
+      }
+    },
+    "exchange.share" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartilhar"
+          }
+        }
+      }
+    },
+    "exchange.share.attribution" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feito com o app Repetida"
+          }
+        }
+      }
+    },
+    "exchange.share.copied" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiado!"
+          }
+        }
+      }
+    },
+    "exchange.share.cta" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bora trocar?"
+          }
+        }
+      }
+    },
+    "exchange.share.overflowCopies %lld" : {
+
+    },
+    "exchange.share.quantity %lld" : {
+
+    },
+    "exchange.share.sheetHeadline %lld" : {
+
+    },
+    "exchange.share.showListPreview" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar prévia da lista"
+          }
+        }
+      }
+    },
+    "exchange.share.square" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagem quadrada"
+          }
+        }
+      }
+    },
+    "exchange.share.story" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagem story"
+          }
+        }
+      }
+    },
+    "exchange.share.total %lld" : {
+
+    },
+    "exchange.share.tradingHeadlineLine2" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disponíveis para troca"
+          }
+        }
+      }
+    },
+    "exchange.share.tradingHeadlinePlural" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minhas figurinhas"
+          }
+        }
+      }
+    },
+    "exchange.share.tradingHeadlineSingular" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minha figurinha"
+          }
+        }
+      }
+    },
+    "exchange.share.whatsappHeader" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "📦 REPETIDAS"
+          }
+        }
+      }
+    },
+    "exchange.sort" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar"
+          }
+        }
+      }
+    },
+    "exchange.sort.quantity" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quantidade"
+          }
+        }
+      }
+    },
+    "home.albumComplete" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Álbum completo!"
+          }
+        }
+      }
+    },
+    "home.albumCompletion" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progresso do álbum"
+          }
+        }
+      }
+    },
+    "home.closestTeams" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quase completas"
+          }
+        }
+      }
+    },
+    "home.closestTeamSubtitle %@ %@" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "home.closestTeamSubtitle %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "home.empty.goToMissing" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marcar"
+          }
+        }
+      }
+    },
+    "home.empty.message" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marque as figurinhas que você já tem."
+          }
+        }
+      }
+    },
+    "home.empty.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comece a completar o seu álbum!"
+          }
+        }
+      }
+    },
+    "home.recent.addedToCollection" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "adicionada à coleção"
+          }
+        }
+      }
+    },
+    "home.recent.duplicateRegistered" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "repetida registrada"
+          }
+        }
+      }
+    },
+    "home.recent.duplicateRemoved" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "removida das repetidas"
+          }
+        }
+      }
+    },
+    "home.recent.removedFromCollection" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "removida da coleção"
+          }
+        }
+      }
+    },
+    "home.recentlyUpdated" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atividade recente"
+          }
+        }
+      }
+    },
+    "home.stat.duplicates" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repetidas"
+          }
+        }
+      }
+    },
+    "home.stat.missing" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faltando"
+          }
+        }
+      }
+    },
+    "home.stat.teamsAccessibility %lld %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "home.stat.teamsAccessibility %1$lld %2$lld"
+          }
+        }
+      }
+    },
+    "home.stat.teamsCompleted" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleções concluídas"
+          }
+        }
+      }
+    },
+    "home.teamFaltam %lld" : {
+
+    },
+    "home.teamFaltaOne" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falta 1"
+          }
+        }
+      }
+    },
+    "launch.failure.message" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O banco de dados local não abriu. Isso pode acontecer após atualizar o iOS. Toque em tentar novamente — seus dados do álbum podem ser resetados."
+          }
+        }
+      }
+    },
+    "launch.failure.retry" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tentar novamente"
+          }
+        }
+      }
+    },
+    "launch.failure.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível iniciar"
+          }
+        }
+      }
+    },
+    "lookup.clearSearch" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar busca"
+          }
+        }
+      }
+    },
+    "lookup.noResults" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhuma figurinha encontrada"
+          }
+        }
+      }
+    },
+    "lookup.searchPlaceholder" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar código, jogador ou seleção…"
+          }
+        }
+      }
+    },
+    "lookup.searchPrompt" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busque por código, jogador ou seleção"
+          }
+        }
+      }
+    },
+    "missing.allOwned" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parabéns! Você tem todas as figurinhas"
+          }
+        }
+      }
+    },
+    "missing.filter.all" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas"
+          }
+        }
+      }
+    },
+    "missing.filter.teamChip %@ %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "missing.filter.teamChip %1$@ %2$lld"
+          }
+        }
+      }
+    },
+    "missing.searchPlaceholder" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar figurinhas"
+          }
+        }
+      }
+    },
+    "missing.sort.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar faltando"
+          }
+        }
+      }
+    },
+    "missing.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Figurinhas faltando"
+          }
+        }
+      }
+    },
+    "section.history" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "História da Copa"
+          }
+        }
+      }
+    },
+    "section.hosts" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Países-sede"
+          }
+        }
+      }
+    },
+    "section.national" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleções"
+          }
+        }
+      }
+    },
+    "section.panini" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Panini"
+          }
+        }
+      }
+    },
+    "section.tournament" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Torneio"
+          }
+        }
+      }
+    },
+    "status.duplicate %lld" : {
+
+    },
+    "status.missing" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falta"
+          }
+        }
+      }
+    },
+    "status.owned" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenho"
+          }
+        }
+      }
+    },
+    "status.ownedWithDuplicates %lld" : {
+
+    },
+    "tab.home" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Início"
+          }
+        }
+      }
+    },
+    "tab.missing" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faltando"
+          }
+        }
+      }
+    },
+    "tab.repetidas" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repetidas"
+          }
+        }
+      }
+    },
+    "tab.teams" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleções"
+          }
+        }
+      }
+    },
+    "teams.celebration.dismiss" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar"
+          }
+        }
+      }
+    },
+    "teams.celebration.progress %lld %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "teams.celebration.progress %1$lld %2$lld"
+          }
+        }
+      }
+    },
+    "teams.celebration.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seção completa!"
+          }
+        }
+      }
+    },
+    "teams.page.lock" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bloquear página"
+          }
+        }
+      }
+    },
+    "teams.page.locked" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página bloqueada — toque no cadeado para editar"
+          }
+        }
+      }
+    },
+    "teams.page.unlock" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquear página"
+          }
+        }
+      }
+    },
+    "teams.pager.dismissHint" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar dica"
+          }
+        }
+      }
+    },
+    "teams.pager.next %@ %@" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "teams.pager.next %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "teams.pager.previous %@ %@" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "teams.pager.previous %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "teams.pager.swipeHint" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deslize para trocar de seleção ou toque no código acima"
+          }
+        }
+      }
+    },
+    "teams.picker.open %@" : {
+
+    },
+    "teams.picker.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir para seleção"
+          }
+        }
+      }
+    },
+    "teams.progress.label %lld %lld %lld" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "teams.progress.label %1$lld %2$lld %3$lld"
+          }
+        }
+      }
+    },
+    "teams.searchPlaceholder" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar seleção ou código FIFA"
+          }
+        }
+      }
+    },
+    "teams.sort.albumPage" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página do álbum"
+          }
+        }
+      }
+    },
+    "teams.sort.completion" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conclusão (%)"
+          }
+        }
+      }
+    },
+    "teams.sort.name" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome (A–Z)"
+          }
+        }
+      }
+    },
+    "teams.sort.teamCode" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Código FIFA (A–Z)"
+          }
+        }
+      }
+    },
+    "teams.sort.title" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar seleções"
+          }
+        }
+      }
+    },
+    "teams.weAreTitle %@" : {
+
+    }
+  },
+  "version" : "1.0"
+}
