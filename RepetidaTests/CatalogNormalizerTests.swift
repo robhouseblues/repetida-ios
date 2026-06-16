@@ -49,7 +49,7 @@ final class CatalogNormalizerTests: XCTestCase {
         )
         XCTAssertEqual(
             CatalogNormalizer.parseTeamCode(from: CatalogEntry(code: "00", name: "Panini Logo", team: "We Are Panini")),
-            "PANINI"
+            "LOGO"
         )
         XCTAssertEqual(
             CatalogNormalizer.parseTeamCode(from: CatalogEntry(code: "FWC1", name: "Official Emblem1", team: "FIFA World Cup 2026")),

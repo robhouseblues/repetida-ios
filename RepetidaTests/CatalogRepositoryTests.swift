@@ -20,7 +20,7 @@ final class CatalogRepositoryTests: XCTestCase {
         let repo = CatalogRepository(bundle: Bundle(for: CatalogRepositoryTests.self))
         let panini = repo.teams.first { $0.id == "panini" }
         XCTAssertEqual(panini?.firstAlbumPage, 0)
-        XCTAssertEqual(repo.team(forAlbumPage: 0)?.code, "PANINI")
+        XCTAssertEqual(repo.team(forAlbumPage: 0)?.code, "LOGO")
 
         let ordered = repo.teams.map(\.firstAlbumPage)
         XCTAssertEqual(ordered.first, 0)
