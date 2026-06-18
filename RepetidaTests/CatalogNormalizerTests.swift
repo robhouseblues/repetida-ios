@@ -8,7 +8,7 @@ final class CatalogNormalizerTests: XCTestCase {
     override func setUpWithError() throws {
         let bundle = Bundle(for: CatalogNormalizerTests.self)
 
-        let catalogURL = try XCTUnwrap(bundle.url(forResource: "panini-wc-2026-catalog", withExtension: "json"))
+        let catalogURL = try XCTUnwrap(bundle.url(forResource: "album-catalog", withExtension: "json"))
         let teamsURL = try XCTUnwrap(bundle.url(forResource: "teams", withExtension: "json"))
 
         catalog = try JSONDecoder().decode(RawCatalog.self, from: Data(contentsOf: catalogURL))
@@ -48,11 +48,11 @@ final class CatalogNormalizerTests: XCTestCase {
             "MEX"
         )
         XCTAssertEqual(
-            CatalogNormalizer.parseTeamCode(from: CatalogEntry(code: "00", name: "Panini Logo", team: "We Are Panini")),
+            CatalogNormalizer.parseTeamCode(from: CatalogEntry(code: "00", name: "Logo", team: "We Are Logo")),
             "LOGO"
         )
         XCTAssertEqual(
-            CatalogNormalizer.parseTeamCode(from: CatalogEntry(code: "FWC1", name: "Official Emblem1", team: "FIFA World Cup 2026")),
+            CatalogNormalizer.parseTeamCode(from: CatalogEntry(code: "FWC1", name: "Official Emblem1", team: "Tournament Specials")),
             "FWC"
         )
     }
@@ -67,7 +67,7 @@ final class CatalogNormalizerTests: XCTestCase {
             .teamPhoto
         )
         XCTAssertEqual(
-            CatalogNormalizer.inferKind(entry: CatalogEntry(code: "FWC10", name: "Uruguay 1930", team: "FIFA World Cup History")),
+            CatalogNormalizer.inferKind(entry: CatalogEntry(code: "FWC10", name: "Uruguay 1930", team: "Tournament Legends")),
             .legend
         )
     }

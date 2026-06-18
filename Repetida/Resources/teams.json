@@ -1,18 +1,18 @@
 {
   "teams": [
     {
-      "id": "panini",
+      "id": "logo",
       "code": "LOGO",
       "name": "We Are Logo",
       "albumPages": [
         0
       ],
-      "section": "panini"
+      "section": "logo"
     },
     {
       "id": "fwc",
       "code": "FWC",
-      "name": "World Cup 2026",
+      "name": "Emblemas Oficiais",
       "albumPages": [
         1,
         2
@@ -32,7 +32,7 @@
     {
       "id": "hist",
       "code": "HIST",
-      "name": "World Cup History",
+      "name": "Grandes Momentos",
       "albumPages": [
         106,
         107,
