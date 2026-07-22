@@ -5,7 +5,8 @@ struct GrainTexture: View {
 
     var body: some View {
         Canvas { context, size in
-            let density = max(1, Int(size.width * size.height * 0.06))
+            // Keep grain cheap — dense per-tile fills were freezing scroll/drag.
+            let density = max(1, Int(size.width * size.height * 0.008))
             for index in 0..<density {
                 var generator = SeededRandomNumberGenerator(seed: UInt64(index &* 7919))
                 let x = CGFloat.random(in: 0..<size.width, using: &generator)
@@ -44,6 +45,7 @@ struct CardAtmosphereOverlay: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var showScanlines: Bool = true
+    var showGrain: Bool = true
 
     var body: some View {
         ZStack {
@@ -99,7 +101,9 @@ struct CardAtmosphereOverlay: View {
             )
 
             if !reduceMotion {
-                GrainTexture(opacity: 0.032)
+                if showGrain {
+                    GrainTexture(opacity: 0.032)
+                }
                 if showScanlines {
                     ScanlineOverlay(opacity: 0.018, spacing: 4)
                 }

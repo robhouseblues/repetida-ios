@@ -356,6 +356,9 @@ struct ExchangeShareSheet: View {
     @State private var copiedTextList = false
     @State private var showWhatsAppPreview = false
     @State private var selectedDetent: PresentationDetent = .height(360)
+    @State private var storyImage: UIImage?
+    @State private var squareImage: UIImage?
+    @State private var isRenderingShareImages = true
 
     var body: some View {
         VStack(spacing: 0) {
@@ -389,7 +392,14 @@ struct ExchangeShareSheet: View {
                     }
                     .buttonStyle(.plain)
 
-                    if let image = ExchangeShareRenderer.render(payload: payload, template: .story) {
+                    if isRenderingShareImages && storyImage == nil && squareImage == nil {
+                        ProgressView()
+                            .tint(DSColors.primary)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, DSSpacing.md)
+                    }
+
+                    if let image = storyImage {
                         ShareLink(
                             item: ShareableImage(image: image),
                             preview: SharePreview(L10n.exchangeShareStory, image: Image(uiImage: image))
@@ -398,7 +408,7 @@ struct ExchangeShareSheet: View {
                         }
                     }
 
-                    if let image = ExchangeShareRenderer.render(payload: payload, template: .square) {
+                    if let image = squareImage {
                         ShareLink(
                             item: ShareableImage(image: image),
                             preview: SharePreview(L10n.exchangeShareSquare, image: Image(uiImage: image))
@@ -418,6 +428,13 @@ struct ExchangeShareSheet: View {
         .presentationBackground(DSColors.screenBackground)
         .onChange(of: showWhatsAppPreview) { _, expanded in
             selectedDetent = expanded ? .medium : .height(360)
+        }
+        .task {
+            let story = ExchangeShareRenderer.render(payload: payload, template: .story)
+            let square = ExchangeShareRenderer.render(payload: payload, template: .square)
+            storyImage = story
+            squareImage = square
+            isRenderingShareImages = false
         }
     }
 

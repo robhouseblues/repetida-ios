@@ -5,15 +5,12 @@ struct ExchangeView: View {
     @Environment(\.collectionRepository) private var collection
 
     @State private var viewModel = ExchangeViewModel()
+    @State private var dragController = ExchangeDragController()
     @AppStorage("exchangeSortOrder") private var sortOrderRaw = ExchangeSortOrder.albumPage.rawValue
     @State private var query = ""
     @State private var quickFilter: ExchangeQuickFilter = .all
     @State private var showShareSheet = false
     @State private var showAddCopy = false
-    @State private var dragSession: ExchangeDragSession?
-    @State private var hoveredZone: ExchangeDragZone?
-    @State private var dockFrames: [ExchangeDragZone: CGRect] = [:]
-    @State private var tileFrames: [String: CGRect] = [:]
     @AppStorage("hasDismissedExchangeDragHint") private var hasDismissedExchangeDragHint = false
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: DSSpacing.sm), count: 4)
@@ -22,16 +19,20 @@ struct ExchangeView: View {
         ExchangeSortOrder(resolving: sortOrderRaw)
     }
 
+    private var collectionChangeToken: Int {
+        collection?.changeToken ?? -1
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
                 ScreenBackground()
 
-                if let collection {
-                    if viewModel.allDuplicateItems(catalog: catalog, collection: collection).isEmpty {
+                if collection != nil {
+                    if viewModel.allItems.isEmpty {
                         emptyState
                     } else {
-                        mainContent(collection: collection)
+                        mainContent
                     }
                 } else {
                     emptyState
@@ -41,12 +42,21 @@ struct ExchangeView: View {
             .toolbar(.hidden, for: .navigationBar)
             .onAppear {
                 viewModel.sortOrder = sortOrder
+                refreshInventory()
             }
             .onChange(of: sortOrderRaw) { _, _ in
                 viewModel.sortOrder = sortOrder
+                refreshInventory()
             }
             .onChange(of: query) { _, _ in
                 quickFilter = .all
+                refreshInventory()
+            }
+            .onChange(of: quickFilter) { _, _ in
+                refreshInventory()
+            }
+            .onChange(of: collectionChangeToken) { _, _ in
+                refreshInventory()
             }
             .navigationDestination(isPresented: $showAddCopy) {
                 ExchangeAddCopyView()
@@ -72,6 +82,16 @@ struct ExchangeView: View {
         }
     }
 
+    private func refreshInventory() {
+        guard let collection else { return }
+        viewModel.refresh(
+            catalog: catalog,
+            collection: collection,
+            query: query,
+            filter: quickFilter
+        )
+    }
+
     private var emptyState: some View {
         VStack(spacing: DSSpacing.md) {
             Image(systemName: "square.on.square")
@@ -90,26 +110,14 @@ struct ExchangeView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    private func mainContent(collection: CollectionRepository) -> some View {
-        let teamChips = viewModel.teamChips(
-            catalog: catalog,
-            collection: collection,
-            query: query
-        )
-        let groups = viewModel.groupedSections(
-            catalog: catalog,
-            collection: collection,
-            query: query,
-            filter: quickFilter
-        )
-
-        return ZStack(alignment: .bottom) {
+    private var mainContent: some View {
+        ZStack(alignment: .bottom) {
             VStack(spacing: DSSpacing.md) {
                 DSScreenHeader(
                     title: L10n.tabRepetidas,
                     searchText: $query,
                     searchPlaceholder: L10n.exchangeSearchPlaceholder,
-                    subtitle: viewModel.insightText(catalog: catalog, collection: collection)
+                    subtitle: viewModel.insightText
                 ) {
                     HStack(spacing: DSSpacing.sm) {
                         addCopyIconButton
@@ -124,53 +132,24 @@ struct ExchangeView: View {
                         .transition(.move(edge: .top).combined(with: .opacity))
                 }
 
-                if !teamChips.isEmpty {
+                if !viewModel.teamChips.isEmpty {
                     ExchangeFilterChipBar(
-                        teamChips: teamChips,
+                        teamChips: viewModel.teamChips,
                         quickFilter: $quickFilter
                     )
                 }
 
-                if groups.isEmpty {
+                if viewModel.groups.isEmpty {
                     noResultsState
                 } else {
-                    duplicatesGrid(groups: groups, collection: collection)
+                    duplicatesGrid
                 }
             }
+            .animation(.easeOut(duration: 0.2), value: showsDragHint)
 
-            if dragSession != nil {
-                Color.black.opacity(0.3)
-                    .ignoresSafeArea()
-                    .allowsHitTesting(false)
-                    .zIndex(100)
-
-                ExchangeDragDock(hoveredZone: hoveredZone)
-                    .padding(.horizontal, DSSpacing.lg)
-                    .padding(.bottom, DSSpacing.md)
-                    .zIndex(150)
-            }
-
-            if let session = dragSession,
-               let item = draggedItem(code: session.stickerCode, in: groups) {
-                ExchangeDragPreview(item: item, session: session)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
-                    .zIndex(200)
-            }
+            ExchangeDragOverlay(controller: dragController)
+                .zIndex(100)
         }
-        .animation(.easeOut(duration: 0.2), value: dragSession != nil)
-        .animation(.easeOut(duration: 0.2), value: showsDragHint)
-        .exchangeDragDockFrames($dockFrames)
-        .exchangeTileFrames($tileFrames)
-    }
-
-    private func draggedItem(
-        code: String,
-        in groups: [(team: Team, stickers: [ExchangeStickerItem])]
-    ) -> ExchangeStickerItem? {
-        groups.lazy
-            .flatMap(\.stickers)
-            .first { $0.sticker.code == code }
     }
 
     private var noResultsState: some View {
@@ -223,53 +202,17 @@ struct ExchangeView: View {
         }
     }
 
-    private func duplicatesGrid(
-        groups: [(team: Team, stickers: [ExchangeStickerItem])],
-        collection: CollectionRepository
-    ) -> some View {
-        ScrollView {
-            LazyVStack(alignment: .leading, spacing: DSSpacing.lg) {
-                ForEach(groups, id: \.team.id) { group in
-                    teamSection(group: group, collection: collection)
-                }
-            }
-            .padding(.horizontal, DSSpacing.lg)
-            .padding(.bottom, DSSpacing.xl)
-        }
-        .scrollDisabled(dragSession != nil)
-    }
-
-    private func teamSection(
-        group: (team: Team, stickers: [ExchangeStickerItem]),
-        collection: CollectionRepository
-    ) -> some View {
-        VStack(alignment: .leading, spacing: DSSpacing.md) {
-            DSTeamSectionHeader(team: group.team)
-
-            LazyVGrid(columns: columns, spacing: DSSpacing.sm) {
-                ForEach(group.stickers) { item in
-                    exchangeTile(item: item, collection: collection)
-                }
-            }
-        }
-    }
-
-    private func exchangeTile(
-        item: ExchangeStickerItem,
-        collection: CollectionRepository
-    ) -> some View {
-        ExchangeDraggableTile(
-            item: item,
-            dragSession: $dragSession,
-            hoveredZone: $hoveredZone,
-            tileFrames: tileFrames,
-            dockFrames: dockFrames,
-            onAdd: {
-                collection.adjustDuplicates(by: 1, for: item.sticker.code)
+    private var duplicatesGrid: some View {
+        ExchangeDuplicatesGrid(
+            groups: viewModel.groups,
+            columns: columns,
+            dragController: dragController,
+            onAdd: { code in
+                collection?.adjustDuplicates(by: 1, for: code)
                 dismissDragHint()
             },
-            onRemove: {
-                collection.adjustDuplicates(by: -1, for: item.sticker.code)
+            onRemove: { code in
+                collection?.adjustDuplicates(by: -1, for: code)
                 dismissDragHint()
             }
         )
@@ -277,5 +220,43 @@ struct ExchangeView: View {
 
     private func sortLabel(for order: ExchangeSortOrder) -> String {
         L10n.sortLabel(for: order)
+    }
+}
+
+/// Isolated scroll/grid so drag-session updates don't rebuild header/chips via preference churn.
+private struct ExchangeDuplicatesGrid: View {
+    let groups: [(team: Team, stickers: [ExchangeStickerItem])]
+    let columns: [GridItem]
+    @Bindable var dragController: ExchangeDragController
+    let onAdd: (String) -> Void
+    let onRemove: (String) -> Void
+
+    var body: some View {
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: DSSpacing.lg) {
+                ForEach(groups, id: \.team.id) { group in
+                    VStack(alignment: .leading, spacing: DSSpacing.md) {
+                        DSTeamSectionHeader(team: group.team)
+
+                        LazyVGrid(columns: columns, spacing: DSSpacing.sm) {
+                            ForEach(group.stickers) { item in
+                                ExchangeDraggableTile(
+                                    item: item,
+                                    controller: dragController,
+                                    onAdd: { onAdd(item.sticker.code) },
+                                    onRemove: { onRemove(item.sticker.code) }
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, DSSpacing.lg)
+            .padding(.bottom, DSSpacing.xl)
+            .onPreferenceChange(ExchangeTileFrameKey.self) { frames in
+                dragController.tileFrames = frames
+            }
+        }
+        .scrollDisabled(dragController.session != nil)
     }
 }

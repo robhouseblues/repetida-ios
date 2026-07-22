@@ -8,10 +8,14 @@ private enum DuplicateCopyMigration {
 
 @Observable
 final class SwiftDataCollectionRepository: CollectionRepository {
+    private(set) var changeToken = 0
+
     private let modelContext: ModelContext
     private let catalog: CatalogRepository
     private var entryCache: [String: StickerEntry] = [:]
     private var copyCache: [UUID: DuplicateCopy] = [:]
+    private var copiesByCode: [String: [DuplicateCopy]] = [:]
+    private var nextCopySortIndex = 0
     private var collectionCache: [UUID: TradeCollection] = [:]
     private var activityCache: [UUID: CollectionActivity] = [:]
 
@@ -30,8 +34,9 @@ final class SwiftDataCollectionRepository: CollectionRepository {
             .reduce(into: [:]) { $0[$1.code] = $1 } ?? [:]
 
         let copyDescriptor = FetchDescriptor<DuplicateCopy>()
-        copyCache = (try? modelContext.fetch(copyDescriptor))?
-            .reduce(into: [:]) { $0[$1.id] = $1 } ?? [:]
+        let copies = (try? modelContext.fetch(copyDescriptor)) ?? []
+        copyCache = copies.reduce(into: [:]) { $0[$1.id] = $1 }
+        rebuildCopiesIndex(from: copies)
 
         let collectionDescriptor = FetchDescriptor<TradeCollection>(
             sortBy: [SortDescriptor(\.sortOrder), SortDescriptor(\.name)]
@@ -44,15 +49,27 @@ final class SwiftDataCollectionRepository: CollectionRepository {
             .reduce(into: [:]) { $0[$1.id] = $1 } ?? [:]
     }
 
-    private func logActivity(stickerCode: String, kind: RecentUpdateKind) {
+    private func rebuildCopiesIndex(from copies: [DuplicateCopy]) {
+        copiesByCode = Dictionary(grouping: copies, by: \.stickerCode)
+            .mapValues { $0.sorted { $0.createdAt < $1.createdAt } }
+        nextCopySortIndex = (copies.map(\.sortIndex).max() ?? -1) + 1
+    }
+
+    private func noteMutation() {
+        changeToken &+= 1
+    }
+
+    private func logActivity(stickerCode: String, kind: RecentUpdateKind, saveImmediately: Bool = true) {
         let activity = CollectionActivity(stickerCode: stickerCode, kind: kind)
         modelContext.insert(activity)
         activityCache[activity.id] = activity
-        save()
+        if saveImmediately {
+            save()
+        }
     }
 
     private func inferActivityKind(for entry: StickerEntry) -> RecentUpdateKind {
-        let duplicateCount = copies(for: entry.code).count
+        let duplicateCount = entry.duplicateCount
         if duplicateCount > 0, !entry.isOwned {
             return .duplicateAdded
         }
@@ -89,6 +106,7 @@ final class SwiftDataCollectionRepository: CollectionRepository {
             }
         }
 
+        rebuildCopiesIndex(from: Array(copyCache.values))
         save()
         UserDefaults.standard.set(true, forKey: DuplicateCopyMigration.completedKey)
     }
@@ -112,21 +130,35 @@ final class SwiftDataCollectionRepository: CollectionRepository {
     }
 
     private func copies(for code: String) -> [DuplicateCopy] {
-        copyCache.values
-            .filter { $0.stickerCode == code }
-            .sorted { $0.createdAt < $1.createdAt }
+        copiesByCode[code] ?? []
     }
 
-    private func syncDuplicateCount(for code: String) {
+    private func insertCopy(_ copy: DuplicateCopy) {
+        copyCache[copy.id] = copy
+        var list = copiesByCode[copy.stickerCode] ?? []
+        list.append(copy)
+        list.sort { $0.createdAt < $1.createdAt }
+        copiesByCode[copy.stickerCode] = list
+    }
+
+    private func removeCopyFromIndex(_ copy: DuplicateCopy) {
+        guard var list = copiesByCode[copy.stickerCode] else { return }
+        list.removeAll { $0.id == copy.id }
+        if list.isEmpty {
+            copiesByCode.removeValue(forKey: copy.stickerCode)
+        } else {
+            copiesByCode[copy.stickerCode] = list
+        }
+    }
+
+    private func syncDuplicateCount(for code: String, saveImmediately: Bool = true) {
         let count = copies(for: code).count
         let entry = fetchOrCreate(code: code)
         entry.duplicateCount = count
         entry.updatedAt = .now
-        save()
-    }
-
-    private func nextSortIndex() -> Int {
-        (copyCache.values.map(\.sortIndex).max() ?? -1) + 1
+        if saveImmediately {
+            save()
+        }
     }
 
     private func removeEnvelopesIfNeeded() {
@@ -149,7 +181,7 @@ final class SwiftDataCollectionRepository: CollectionRepository {
 
     func status(for code: String) -> StickerStatus {
         guard let entry = entry(for: code) else { return .missing }
-        let dupeCount = copies(for: code).count
+        let dupeCount = entry.duplicateCount
         if entry.isOwned && dupeCount > 0 {
             return .ownedWithDuplicates(count: dupeCount)
         }
@@ -165,6 +197,7 @@ final class SwiftDataCollectionRepository: CollectionRepository {
         entry.updatedAt = .now
         logActivity(stickerCode: code, kind: owned ? .markedOwned : .markedMissing)
         save()
+        noteMutation()
         publishAlbumCompletionIfNeeded(wasComplete: wasAlbumComplete)
     }
 
@@ -173,12 +206,17 @@ final class SwiftDataCollectionRepository: CollectionRepository {
             for _ in 0..<delta {
                 addDuplicateCopy(for: code)
             }
+            syncDuplicateCount(for: code, saveImmediately: false)
+            save()
+            noteMutation()
         } else if delta < 0 {
-            let toRemove = min(-delta, copies(for: code).count)
-            let removable = copies(for: code).suffix(toRemove)
+            let removable = Array(copies(for: code).suffix(min(-delta, copies(for: code).count)))
             for copy in removable {
-                removeDuplicateCopy(copy.id)
+                removeDuplicateCopy(copy.id, logRemoval: true, saveImmediately: false)
             }
+            syncDuplicateCount(for: code, saveImmediately: false)
+            save()
+            noteMutation()
         }
     }
 
@@ -190,6 +228,7 @@ final class SwiftDataCollectionRepository: CollectionRepository {
             entry.updatedAt = .now
         }
         save()
+        noteMutation()
         publishAlbumCompletionIfNeeded(wasComplete: wasAlbumComplete)
     }
 
@@ -198,20 +237,19 @@ final class SwiftDataCollectionRepository: CollectionRepository {
     }
 
     func duplicateStickers() -> [StickerEntry] {
-        let codesWithCopies = Set(copyCache.values.map(\.stickerCode))
-        return codesWithCopies.compactMap { entryCache[$0] }
+        copiesByCode.keys.compactMap { entryCache[$0] }
             .sorted { $0.code < $1.code }
     }
 
     func missingStickers() -> [NormalizedSticker] {
         catalog.allStickers
-            .filter { !status(for: $0.code).isOwned }
+            .filter { entryCache[$0.code]?.isOwned != true }
             .sorted { $0.code < $1.code }
     }
 
     func progress(for teamId: String) -> TeamProgress {
         let stickers = catalog.stickers(forTeamId: teamId)
-        let owned = stickers.filter { status(for: $0.code).isOwned }.count
+        let owned = stickers.filter { entryCache[$0.code]?.isOwned == true }.count
         return TeamProgress(teamId: teamId, owned: owned, total: stickers.count)
     }
 
@@ -232,13 +270,14 @@ final class SwiftDataCollectionRepository: CollectionRepository {
 
     func albumProgress() -> AlbumProgress {
         let total = catalog.allStickers.count
-        let owned = catalog.allStickers.filter { status(for: $0.code).isOwned }.count
-        let duplicateCount = copyCache.count
+        let owned = catalog.allStickers.reduce(0) { partial, sticker in
+            partial + (entryCache[sticker.code]?.isOwned == true ? 1 : 0)
+        }
         return AlbumProgress(
             owned: owned,
             total: total,
             missing: total - owned,
-            duplicateCount: duplicateCount
+            duplicateCount: copyCache.count
         )
     }
 
@@ -276,21 +315,29 @@ final class SwiftDataCollectionRepository: CollectionRepository {
         let copy = DuplicateCopy(
             stickerCode: code,
             collectionId: nil,
-            sortIndex: nextSortIndex()
+            sortIndex: nextCopySortIndex
         )
+        nextCopySortIndex += 1
         modelContext.insert(copy)
-        copyCache[copy.id] = copy
-        logActivity(stickerCode: code, kind: .duplicateAdded)
-        syncDuplicateCount(for: code)
+        insertCopy(copy)
+        logActivity(stickerCode: code, kind: .duplicateAdded, saveImmediately: false)
     }
 
-    private func removeDuplicateCopy(_ copyId: UUID, logRemoval: Bool = true) {
+    private func removeDuplicateCopy(
+        _ copyId: UUID,
+        logRemoval: Bool = true,
+        saveImmediately: Bool = true
+    ) {
         guard let copy = copyCache.removeValue(forKey: copyId) else { return }
+        removeCopyFromIndex(copy)
         modelContext.delete(copy)
         if logRemoval {
-            logActivity(stickerCode: copy.stickerCode, kind: .duplicateRemoved)
+            logActivity(stickerCode: copy.stickerCode, kind: .duplicateRemoved, saveImmediately: false)
         }
-        syncDuplicateCount(for: copy.stickerCode)
-        save()
+        if saveImmediately {
+            syncDuplicateCount(for: copy.stickerCode, saveImmediately: false)
+            save()
+            noteMutation()
+        }
     }
 }

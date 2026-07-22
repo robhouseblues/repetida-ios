@@ -7,6 +7,7 @@ struct AtmosphericCardBackground: View {
     var strokeLineWidth: CGFloat = 1
     var strokeDash: [CGFloat] = []
     var showScanlines: Bool = true
+    var showGrain: Bool = true
     var showsShadow: Bool = true
     var glowColor: Color? = nil
     var dimOverlay: Color? = nil
@@ -16,7 +17,7 @@ struct AtmosphericCardBackground: View {
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
             .fill(DSColors.cardSurface)
             .overlay {
-                CardAtmosphereOverlay(showScanlines: showScanlines)
+                CardAtmosphereOverlay(showScanlines: showScanlines, showGrain: showGrain)
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
             }
             .overlay {
@@ -78,6 +79,7 @@ struct AtmosphericCardSurfaceModifier: ViewModifier {
     var strokeLineWidth: CGFloat = 1
     var strokeDash: [CGFloat] = []
     var showScanlines: Bool = true
+    var showGrain: Bool = true
     var showsShadow: Bool = true
     var glowColor: Color? = nil
     var dimOverlay: Color? = nil
@@ -92,6 +94,7 @@ struct AtmosphericCardSurfaceModifier: ViewModifier {
                 strokeLineWidth: strokeLineWidth,
                 strokeDash: strokeDash,
                 showScanlines: showScanlines,
+                showGrain: showGrain,
                 showsShadow: showsShadow,
                 glowColor: glowColor,
                 dimOverlay: dimOverlay,
@@ -109,6 +112,7 @@ extension View {
         strokeLineWidth: CGFloat = 1,
         strokeDash: [CGFloat] = [],
         showScanlines: Bool = true,
+        showGrain: Bool = true,
         showsShadow: Bool = true,
         glowColor: Color? = nil,
         dimOverlay: Color? = nil,
@@ -122,6 +126,7 @@ extension View {
                 strokeLineWidth: strokeLineWidth,
                 strokeDash: strokeDash,
                 showScanlines: showScanlines,
+                showGrain: showGrain,
                 showsShadow: showsShadow,
                 glowColor: glowColor,
                 dimOverlay: dimOverlay,

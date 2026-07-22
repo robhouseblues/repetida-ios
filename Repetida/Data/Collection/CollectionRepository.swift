@@ -1,6 +1,9 @@
 import Foundation
 
 protocol CollectionRepository: AnyObject {
+    /// Bumped on every mutation so screens can refresh derived caches without rescanning in `body`.
+    var changeToken: Int { get }
+
     func status(for code: String) -> StickerStatus
     func setOwned(_ owned: Bool, for code: String)
     func adjustDuplicates(by delta: Int, for code: String)

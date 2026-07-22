@@ -10,9 +10,20 @@ enum ExchangeDragZone: Hashable {
 }
 
 struct ExchangeDragSession: Equatable {
-    let stickerCode: String
+    let item: ExchangeStickerItem
     let originFrame: CGRect
     var translation: CGSize = .zero
+
+    var stickerCode: String { item.sticker.code }
+}
+
+@Observable
+@MainActor
+final class ExchangeDragController {
+    var session: ExchangeDragSession?
+    var hoveredZone: ExchangeDragZone?
+    var dockFrames: [ExchangeDragZone: CGRect] = [:]
+    var tileFrames: [String: CGRect] = [:]
 }
 
 private struct ExchangeDragDockFrameKey: PreferenceKey {
@@ -117,7 +128,8 @@ struct ExchangeDragPreview: View {
             onAddDuplicate: {},
             showsToggleOwned: false,
             isTapEnabled: false,
-            showsContextMenu: false
+            showsContextMenu: false,
+            isDragPreview: true
         )
         .frame(width: session.originFrame.width, height: session.originFrame.height)
         .scaleEffect(1.05)
@@ -130,17 +142,45 @@ struct ExchangeDragPreview: View {
     }
 }
 
+/// Dim overlay, dock, and floating preview — owns drag observation so inventory lists stay stable.
+struct ExchangeDragOverlay: View {
+    @Bindable var controller: ExchangeDragController
+
+    var body: some View {
+        ZStack {
+            if controller.session != nil {
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+                    .allowsHitTesting(false)
+
+                ExchangeDragDock(hoveredZone: controller.hoveredZone)
+                    .padding(.horizontal, DSSpacing.lg)
+                    .padding(.bottom, DSSpacing.md)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .onPreferenceChange(ExchangeDragDockFrameKey.self) { frames in
+                        controller.dockFrames = frames
+                    }
+            }
+
+            if let session = controller.session {
+                ExchangeDragPreview(item: session.item, session: session)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+            }
+        }
+        .animation(.easeOut(duration: 0.2), value: controller.session != nil)
+        .allowsHitTesting(controller.session != nil)
+    }
+}
+
 struct ExchangeDraggableTile: View {
     let item: ExchangeStickerItem
-    @Binding var dragSession: ExchangeDragSession?
-    @Binding var hoveredZone: ExchangeDragZone?
-    let tileFrames: [String: CGRect]
-    let dockFrames: [ExchangeDragZone: CGRect]
+    let controller: ExchangeDragController
     let onAdd: () -> Void
     let onRemove: () -> Void
 
     private var isDragging: Bool {
-        dragSession?.stickerCode == item.sticker.code
+        controller.session?.stickerCode == item.sticker.code
     }
 
     var body: some View {
@@ -168,26 +208,33 @@ struct ExchangeDraggableTile: View {
     private var dragGesture: some Gesture {
         DragGesture(minimumDistance: 10, coordinateSpace: .global)
             .onChanged { value in
-                guard dragSession == nil || dragSession?.stickerCode == item.sticker.code else { return }
+                guard controller.session == nil || controller.session?.stickerCode == item.sticker.code else {
+                    return
+                }
 
-                let originFrame = tileFrames[item.sticker.code] ?? dragSession?.originFrame ?? .zero
+                let originFrame = controller.tileFrames[item.sticker.code]
+                    ?? controller.session?.originFrame
+                    ?? .zero
                 guard originFrame.width > 0, originFrame.height > 0 else { return }
 
-                if dragSession == nil {
+                if controller.session == nil {
                     HapticFeedback.light()
                 }
 
-                dragSession = ExchangeDragSession(
-                    stickerCode: item.sticker.code,
+                controller.session = ExchangeDragSession(
+                    item: item,
                     originFrame: originFrame,
                     translation: value.translation
                 )
-                hoveredZone = ExchangeDragZone.zone(containing: value.location, in: dockFrames)
+                controller.hoveredZone = ExchangeDragZone.zone(
+                    containing: value.location,
+                    in: controller.dockFrames
+                )
             }
             .onEnded { value in
-                guard dragSession?.stickerCode == item.sticker.code else { return }
+                guard controller.session?.stickerCode == item.sticker.code else { return }
 
-                if let zone = ExchangeDragZone.zone(containing: value.location, in: dockFrames) {
+                if let zone = ExchangeDragZone.zone(containing: value.location, in: controller.dockFrames) {
                     switch zone {
                     case .add:
                         onAdd()
@@ -199,19 +246,9 @@ struct ExchangeDraggableTile: View {
                 }
 
                 withAnimation(.easeOut(duration: 0.2)) {
-                    dragSession = nil
-                    hoveredZone = nil
+                    controller.session = nil
+                    controller.hoveredZone = nil
                 }
             }
-    }
-}
-
-extension View {
-    func exchangeDragDockFrames(_ frames: Binding<[ExchangeDragZone: CGRect]>) -> some View {
-        onPreferenceChange(ExchangeDragDockFrameKey.self) { frames.wrappedValue = $0 }
-    }
-
-    func exchangeTileFrames(_ frames: Binding<[String: CGRect]>) -> some View {
-        onPreferenceChange(ExchangeTileFrameKey.self) { frames.wrappedValue = $0 }
     }
 }

@@ -19,8 +19,9 @@ enum ExchangeFilterHelper {
         catalog: CatalogRepository,
         collection: CollectionRepository
     ) -> [ExchangeStickerItem] {
-        catalog.allStickers.compactMap { sticker -> ExchangeStickerItem? in
-            let status = collection.status(for: sticker.code)
+        collection.duplicateStickers().compactMap { entry -> ExchangeStickerItem? in
+            guard let sticker = catalog.sticker(forCode: entry.code) else { return nil }
+            let status = collection.status(for: entry.code)
             guard status.duplicateCount > 0 else { return nil }
             return ExchangeStickerItem(sticker: sticker, status: status)
         }
@@ -52,36 +53,47 @@ enum ExchangeFilterHelper {
         order: ExchangeSortOrder,
         filter: ExchangeQuickFilter
     ) -> [ExchangeStickerItem] {
+        filtered(
+            allDuplicateItems(catalog: catalog, collection: collection),
+            catalog: catalog,
+            query: query,
+            filter: filter
+        )
+    }
+
+    static func filtered(
+        _ items: [ExchangeStickerItem],
+        catalog: CatalogRepository,
+        query: String,
+        filter: ExchangeQuickFilter
+    ) -> [ExchangeStickerItem] {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
 
-        let items = allDuplicateItems(catalog: catalog, collection: collection)
-            .filter { item in
-                switch filter {
-                case .all:
-                    break
-                case .shiny:
-                    guard item.sticker.isShiny else { return false }
-                case .twoOrMore:
-                    guard item.duplicateCount >= 2 else { return false }
-                case .team(let teamId):
-                    guard catalog.team(for: item.sticker)?.id == teamId else { return false }
-                }
-
-                guard !trimmed.isEmpty else { return true }
-                let team = catalog.team(for: item.sticker)
-                let searchable = [
-                    item.sticker.code,
-                    item.sticker.name,
-                    team?.name,
-                    team?.code,
-                ]
-                    .compactMap { $0 }
-                    .joined(separator: " ")
-                    .lowercased()
-                return searchable.contains(trimmed)
+        return items.filter { item in
+            switch filter {
+            case .all:
+                break
+            case .shiny:
+                guard item.sticker.isShiny else { return false }
+            case .twoOrMore:
+                guard item.duplicateCount >= 2 else { return false }
+            case .team(let teamId):
+                guard catalog.team(for: item.sticker)?.id == teamId else { return false }
             }
 
-        return items
+            guard !trimmed.isEmpty else { return true }
+            let team = catalog.team(for: item.sticker)
+            let searchable = [
+                item.sticker.code,
+                item.sticker.name,
+                team?.name,
+                team?.code,
+            ]
+                .compactMap { $0 }
+                .joined(separator: " ")
+                .lowercased()
+            return searchable.contains(trimmed)
+        }
     }
 
     static func groupedDuplicates(
