@@ -758,7 +758,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Panini"
+            "value" : "Logo"
           }
         }
       }
@@ -988,7 +988,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar seleção ou código FIFA"
+            "value" : "Buscar seleção ou código"
           }
         }
       }
@@ -1028,7 +1028,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Código FIFA (A–Z)"
+            "value" : "Código (A–Z)"
           }
         }
       }

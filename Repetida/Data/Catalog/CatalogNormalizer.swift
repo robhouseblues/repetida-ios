@@ -15,6 +15,12 @@ enum CatalogNormalizerError: Error, LocalizedError {
 }
 
 struct CatalogNormalizer {
+    private static func sanitizeStickerName(_ rawName: String) -> String {
+        // Keep app copy free of brand references while preserving the original catalog identifiers.
+        if rawName == "Panini Logo" { return "Logo" }
+        return rawName
+    }
+
     static func normalize(
         catalog: RawCatalog,
         teamsManifest: TeamsManifest
@@ -42,7 +48,7 @@ struct CatalogNormalizer {
 
             stickers.append(NormalizedSticker(
                 code: entry.code,
-                name: entry.name,
+                name: sanitizeStickerName(entry.name),
                 teamId: team.id,
                 kind: kind,
                 isShiny: isShiny,
@@ -65,8 +71,8 @@ struct CatalogNormalizer {
     }
 
     static func parseTeamCode(from entry: CatalogEntry) -> String {
-        if entry.code == "00" { return "PANINI" }
-        if entry.team == "We Are Panini" { return "PANINI" }
+        if entry.code == "00" { return "LOGO" }
+        if entry.team == "We Are Panini" { return "LOGO" }
         if entry.team == "FIFA World Cup 2026" { return "FWC" }
         if entry.team == "Host Countries and Cities" { return "HOST" }
         if entry.team == "FIFA World Cup History" { return "HIST" }
