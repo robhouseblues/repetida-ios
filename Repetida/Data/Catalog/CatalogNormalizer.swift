@@ -15,10 +15,11 @@ enum CatalogNormalizerError: Error, LocalizedError {
 }
 
 struct CatalogNormalizer {
-    private static func sanitizeStickerName(_ rawName: String) -> String {
-        // Keep app copy free of brand references while preserving the original catalog identifiers.
-        if rawName == "Panini Logo" { return "Logo" }
-        return rawName
+    private enum CatalogTeam {
+        static let logo = "We Are Logo"
+        static let tournamentSpecials = "Tournament Specials"
+        static let hosts = "Host Countries and Cities"
+        static let legends = "Tournament Legends"
     }
 
     static func normalize(
@@ -48,7 +49,7 @@ struct CatalogNormalizer {
 
             stickers.append(NormalizedSticker(
                 code: entry.code,
-                name: sanitizeStickerName(entry.name),
+                name: entry.name,
                 teamId: team.id,
                 kind: kind,
                 isShiny: isShiny,
@@ -72,10 +73,10 @@ struct CatalogNormalizer {
 
     static func parseTeamCode(from entry: CatalogEntry) -> String {
         if entry.code == "00" { return "LOGO" }
-        if entry.team == "We Are Panini" { return "LOGO" }
-        if entry.team == "FIFA World Cup 2026" { return "FWC" }
-        if entry.team == "Host Countries and Cities" { return "HOST" }
-        if entry.team == "FIFA World Cup History" { return "HIST" }
+        if entry.team == CatalogTeam.logo { return "LOGO" }
+        if entry.team == CatalogTeam.tournamentSpecials { return "FWC" }
+        if entry.team == CatalogTeam.hosts { return "HOST" }
+        if entry.team == CatalogTeam.legends { return "HIST" }
 
         let pattern = #"^([A-Z]{3})"#
         if let match = entry.code.range(of: pattern, options: .regularExpression) {
@@ -87,10 +88,12 @@ struct CatalogNormalizer {
     }
 
     static func inferKind(entry: CatalogEntry) -> StickerKind {
-        if entry.team == "We Are Panini" || entry.team == "FIFA World Cup 2026" || entry.team == "Host Countries and Cities" {
+        if entry.team == CatalogTeam.logo
+            || entry.team == CatalogTeam.tournamentSpecials
+            || entry.team == CatalogTeam.hosts {
             return .special
         }
-        if entry.team == "FIFA World Cup History" { return .legend }
+        if entry.team == CatalogTeam.legends { return .legend }
         if entry.name == "Team Photo" { return .teamPhoto }
         if entry.name == "Emblem" { return .badge }
         return .player

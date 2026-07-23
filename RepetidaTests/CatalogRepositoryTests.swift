@@ -18,8 +18,8 @@ final class CatalogRepositoryTests: XCTestCase {
 
     func testPaniniSortsFirstByAlbumPage() {
         let repo = CatalogRepository(bundle: Bundle(for: CatalogRepositoryTests.self))
-        let panini = repo.teams.first { $0.id == "panini" }
-        XCTAssertEqual(panini?.firstAlbumPage, 0)
+        let logoTeam = repo.teams.first { $0.id == "logo" }
+        XCTAssertEqual(logoTeam?.firstAlbumPage, 0)
         XCTAssertEqual(repo.team(forAlbumPage: 0)?.code, "LOGO")
 
         let ordered = repo.teams.map(\.firstAlbumPage)

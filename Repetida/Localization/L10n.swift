@@ -208,7 +208,7 @@ enum L10n {
 
     // MARK: - Album sections
 
-    static let sectionPanini = String(localized: "section.panini", locale: appLocale)
+    static let sectionLogo = String(localized: "section.logo", locale: appLocale)
     static let sectionTournament = String(localized: "section.tournament", locale: appLocale)
     static let sectionHosts = String(localized: "section.hosts", locale: appLocale)
     static let sectionHistory = String(localized: "section.history", locale: appLocale)

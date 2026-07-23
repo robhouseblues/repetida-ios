@@ -53,7 +53,7 @@
 		846EAAF92B3AA16FB20DEBED /* AtmosphericCardSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349780BD435B2D79A6E0038 /* AtmosphericCardSurface.swift */; };
 		876A2B286FC976F52ED53B2C /* AlbumSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC889FAF36D60FB5CE900C76 /* AlbumSection.swift */; };
 		8B5407A045964A9E04C738F3 /* RecentUpdateKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540F00C559C2D61D64EFC53B /* RecentUpdateKind.swift */; };
-		93C6027DEB60EE585E01557E /* panini-wc-2026-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = E32DD53C1D9BB8D074CB8E8D /* panini-wc-2026-catalog.json */; };
+		93C6027DEB60EE585E01557E /* album-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = E32DD53C1D9BB8D074CB8E8D /* album-catalog.json */; };
 		9987AA1DBC5FD63838A39FD1 /* DSSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045161E6608751E21FF6B32 /* DSSearchField.swift */; };
 		9A758FBA80BB764B5C1C908F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33CBC5B54A141F436DA75516 /* Assets.xcassets */; };
 		9A95AB00033A65DEED9A9AF8 /* AlbumCompletionCelebrationStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE0A104D78C59D13178CEC /* AlbumCompletionCelebrationStoreTests.swift */; };
@@ -80,7 +80,7 @@
 		C36B6DFC17E3A4119AD16EC2 /* ExchangeAddCopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F33848437DD99DD4459094 /* ExchangeAddCopyView.swift */; };
 		C9109B2784BF74577E1DB8A2 /* CollectionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8835F16938C01E4E440999 /* CollectionActivity.swift */; };
 		D419DF5E976103121B16DC6E /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E574B94AA9A68ED8C7A5E16 /* teams.json */; };
-		D84116B5134C36B2FA23CF4D /* panini-wc-2026-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = E32DD53C1D9BB8D074CB8E8D /* panini-wc-2026-catalog.json */; };
+		D84116B5134C36B2FA23CF4D /* album-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = E32DD53C1D9BB8D074CB8E8D /* album-catalog.json */; };
 		D89F8D5F9EF7AEFD2C7A0A0E /* TeamFlagEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192D41E0DCA1B9ACBFFE160 /* TeamFlagEmoji.swift */; };
 		DB4BBFB6B722D02BF578B98D /* ExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A79333C6497097DDFF96F5 /* ExchangeView.swift */; };
 		DC1AADB01D5CF2ECDB3D43AF /* DSLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AACE058AD1AD38535D3D294 /* DSLayout.swift */; };
@@ -185,7 +185,7 @@
 		D6A2738D10AAE3436B5DF7CF /* LookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupView.swift; sourceTree = "<group>"; };
 		DF8DFB68D1D9027ED87C874B /* DSProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProgressRing.swift; sourceTree = "<group>"; };
 		E2023B36CC3CD8A6BDDD3D81 /* StickerKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerKind.swift; sourceTree = "<group>"; };
-		E32DD53C1D9BB8D074CB8E8D /* panini-wc-2026-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "panini-wc-2026-catalog.json"; sourceTree = "<group>"; };
+		E32DD53C1D9BB8D074CB8E8D /* album-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "album-catalog.json"; sourceTree = "<group>"; };
 		E4AE6E8CDA0FEFE578B107A1 /* RepetidaTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RepetidaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B08AC5DC6AC3DB755C06BE /* DSAlbumCompletionBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAlbumCompletionBanner.swift; sourceTree = "<group>"; };
 		EA8835F16938C01E4E440999 /* CollectionActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionActivity.swift; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 		5938AD04534DE931AE0BAF29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E32DD53C1D9BB8D074CB8E8D /* panini-wc-2026-catalog.json */,
+				E32DD53C1D9BB8D074CB8E8D /* album-catalog.json */,
 				7E574B94AA9A68ED8C7A5E16 /* teams.json */,
 			);
 			name = Resources;
@@ -536,7 +536,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93C6027DEB60EE585E01557E /* panini-wc-2026-catalog.json in Resources */,
+				93C6027DEB60EE585E01557E /* album-catalog.json in Resources */,
 				EBD041C1D8C278E0AD0CB374 /* teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,7 +547,7 @@
 			files = (
 				9A758FBA80BB764B5C1C908F /* Assets.xcassets in Resources */,
 				B9DE4BE0CFE14E1B2C44001E /* Localizable.xcstrings in Resources */,
-				D84116B5134C36B2FA23CF4D /* panini-wc-2026-catalog.json in Resources */,
+				D84116B5134C36B2FA23CF4D /* album-catalog.json in Resources */,
 				D419DF5E976103121B16DC6E /* teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

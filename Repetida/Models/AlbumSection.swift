@@ -1,7 +1,7 @@
 import Foundation
 
 enum AlbumSection: String, Codable, CaseIterable, Hashable {
-    case panini
+    case logo
     case tournament
     case hosts
     case history
@@ -9,7 +9,7 @@ enum AlbumSection: String, Codable, CaseIterable, Hashable {
 
     var displayName: String {
         switch self {
-        case .panini: return L10n.sectionPanini
+        case .logo: return L10n.sectionLogo
         case .tournament: return L10n.sectionTournament
         case .hosts: return L10n.sectionHosts
         case .history: return L10n.sectionHistory
@@ -19,7 +19,7 @@ enum AlbumSection: String, Codable, CaseIterable, Hashable {
 
     var sortOrder: Int {
         switch self {
-        case .panini: return 0
+        case .logo: return 0
         case .tournament: return 1
         case .hosts: return 2
         case .history: return 3

@@ -78,7 +78,7 @@ SLIDES = [
     Slide(
         output="01-hero-dream.png",
         kind=LayoutKind.HERO,
-        title="O jeito mais fácil de\ncompletar seu álbum\nde figurinhas 2026",
+        title="O jeito mais fácil de\ncompletar seu álbum",
         subtitle="Progresso, faltantes e repetidas\nem um só lugar.",
         stats="980 figurinhas  ·  48 seleções  ·  100% offline",
     ),
@@ -87,7 +87,7 @@ SLIDES = [
         kind=LayoutKind.PHONE,
         capture="home.png",
         title="Acompanhe seu progresso\nem tempo real",
-        subtitle="O jeito mais fácil de completar seu álbum de 2026!",
+        subtitle="O jeito mais fácil de completar seu álbum de figurinhas!",
     ),
     Slide(
         output="03-faltando.png",
