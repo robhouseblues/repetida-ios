@@ -3,7 +3,6 @@ import SwiftUI
 enum AppTab: Int, Hashable {
     case home
     case teams
-    case missing
     case exchange
 }
 
@@ -32,13 +31,6 @@ struct AppRouter: View {
                         IconOnlyTabBar.icon("flag.2.crossed.fill")
                     }
                     .tag(AppTab.teams)
-
-                MissingStickersView()
-                    .accessibilityLabel(L10n.tabMissing)
-                    .tabItem {
-                        IconOnlyTabBar.icon("square.dashed")
-                    }
-                    .tag(AppTab.missing)
 
                 ExchangeView()
                     .accessibilityLabel(L10n.tabRepetidas)

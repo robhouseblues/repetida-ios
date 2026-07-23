@@ -241,12 +241,6 @@ final class SwiftDataCollectionRepository: CollectionRepository {
             .sorted { $0.code < $1.code }
     }
 
-    func missingStickers() -> [NormalizedSticker] {
-        catalog.allStickers
-            .filter { entryCache[$0.code]?.isOwned != true }
-            .sorted { $0.code < $1.code }
-    }
-
     func progress(for teamId: String) -> TeamProgress {
         let stickers = catalog.stickers(forTeamId: teamId)
         let owned = stickers.filter { entryCache[$0.code]?.isOwned == true }.count

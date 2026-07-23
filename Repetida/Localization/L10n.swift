@@ -14,7 +14,6 @@ enum L10n {
 
     static let tabHome = String(localized: "tab.home", locale: appLocale)
     static let tabTeams = String(localized: "tab.teams", locale: appLocale)
-    static let tabMissing = String(localized: "tab.missing", locale: appLocale)
     static let tabRepetidas = String(localized: "tab.repetidas", locale: appLocale)
 
     // MARK: - Home
@@ -50,20 +49,9 @@ enum L10n {
     static let homeAlbumComplete = String(localized: "home.albumComplete", locale: appLocale)
     static let homeEmptyTitle = String(localized: "home.empty.title", locale: appLocale)
     static let homeEmptyMessage = String(localized: "home.empty.message", locale: appLocale)
-    static let homeEmptyGoToMissing = String(localized: "home.empty.goToMissing", locale: appLocale)
+    static let homeEmptyGoToTeams = String(localized: "home.empty.goToTeams", locale: appLocale)
     static func homeClosestTeamSubtitle(_ stickerCode: String, _ stickerName: String) -> String {
         String(localized: "home.closestTeamSubtitle \(stickerCode) \(stickerName)", locale: appLocale)
-    }
-
-    // MARK: - Missing
-
-    static let missingTitle = String(localized: "missing.title", locale: appLocale)
-    static let missingSearchPlaceholder = String(localized: "missing.searchPlaceholder", locale: appLocale)
-    static let missingAllOwned = String(localized: "missing.allOwned", locale: appLocale)
-    static let missingSortTitle = String(localized: "missing.sort.title", locale: appLocale)
-    static let missingFilterAll = String(localized: "missing.filter.all", locale: appLocale)
-    static func missingFilterTeamChip(_ code: String, _ count: Int) -> String {
-        String(localized: "missing.filter.teamChip \(code) \(count)", locale: appLocale)
     }
 
     // MARK: - Lookup

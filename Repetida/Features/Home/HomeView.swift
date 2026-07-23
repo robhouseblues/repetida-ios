@@ -88,7 +88,7 @@ struct HomeView: View {
 
         return HStack(alignment: .center, spacing: DSSpacing.md) {
             Button {
-                onSelectTab(.missing, nil)
+                onSelectTab(.teams, nil)
             } label: {
                 secondaryStatCard(title: L10n.statMissing) {
                     Text("\(progress.missing)")
@@ -235,8 +235,8 @@ struct HomeView: View {
                 .foregroundStyle(DSColors.textMuted)
                 .multilineTextAlignment(.center)
 
-            DSActionCapsuleButton(title: L10n.homeEmptyGoToMissing) {
-                onSelectTab(.missing, nil)
+            DSActionCapsuleButton(title: L10n.homeEmptyGoToTeams) {
+                onSelectTab(.teams, nil)
             }
             .padding(.top, DSSpacing.sm)
         }

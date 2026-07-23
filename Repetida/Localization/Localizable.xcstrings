@@ -1,1058 +1,980 @@
 {
-  "sourceLanguage" : "pt-BR",
-  "strings" : {
-    "·" : {
-
-    },
-    "%lld" : {
-
-    },
-    "%lld/%lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld/%2$lld"
-          }
-        }
-      }
-    },
-    "%lld%%" : {
-
-    },
-    "+%lld" : {
-
-    },
-    "action.addDuplicate" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adicionar repetida"
-          }
-        }
-      }
-    },
-    "action.addDuplicateShort" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repet. +1"
-          }
-        }
-      }
-    },
-    "action.removeDuplicate" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Remover repetida"
-          }
-        }
-      }
-    },
-    "action.removeDuplicateShort" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repet. −1"
-          }
-        }
-      }
-    },
-    "action.toggleOwned" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alternar tenho"
-          }
-        }
-      }
-    },
-    "album.page %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pág. %lld"
-          }
-        }
-      }
-    },
-    "album.pageRange %lld %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Págs. %1$lld–%2$lld"
+  "sourceLanguage": "pt-BR",
+  "strings": {
+    "·": {},
+    "%lld": {},
+    "%lld/%lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld/%2$lld"
           }
         }
       }
     },
-    "exchange.addCopy" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adicionar repetida"
+    "%lld%%": {},
+    "+%lld": {},
+    "action.addDuplicate": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar repetida"
           }
         }
       }
     },
-    "exchange.addCopy.recent" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recentemente adicionadas"
+    "action.addDuplicateShort": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repet. +1"
           }
         }
       }
     },
-    "exchange.addCopy.sort" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ordenar figurinhas"
+    "action.removeDuplicate": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover repetida"
           }
         }
       }
     },
-    "exchange.addCopySearchPlaceholder" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar figurinhas"
+    "action.removeDuplicateShort": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repet. −1"
           }
         }
       }
     },
-    "exchange.copy.textList" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Copiar lista em texto"
+    "action.toggleOwned": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alternar tenho"
           }
         }
       }
     },
-    "exchange.dock.more" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adicionar repetida"
+    "album.page %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pág. %lld"
           }
         }
       }
     },
-    "exchange.dock.remove" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Remover repetida"
+    "album.pageRange %lld %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Págs. %1$lld–%2$lld"
           }
         }
       }
     },
-    "exchange.dragHint" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arraste uma figurinha para adicionar ou remover repetidas"
+    "exchange.addCopy": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar repetida"
           }
         }
       }
     },
-    "exchange.filter.all" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Todas"
+    "exchange.addCopy.recent": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recentemente adicionadas"
           }
         }
       }
     },
-    "exchange.filter.shiny" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brilhantes"
+    "exchange.addCopy.sort": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ordenar figurinhas"
           }
         }
       }
     },
-    "exchange.filter.teamChip %@ %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ · %2$lld"
+    "exchange.addCopySearchPlaceholder": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar figurinhas"
           }
         }
       }
     },
-    "exchange.filter.twoOrMore" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+2 ou mais"
+    "exchange.copy.textList": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar lista em texto"
           }
         }
       }
     },
-    "exchange.insight %lld %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld repetidas · %2$lld brilhantes"
+    "exchange.dock.more": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar repetida"
           }
         }
       }
     },
-    "exchange.noDuplicates" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nenhuma repetida ainda"
+    "exchange.dock.remove": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remover repetida"
           }
         }
       }
     },
-    "exchange.searchPlaceholder" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar figurinhas"
+    "exchange.dragHint": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arraste uma figurinha para adicionar ou remover repetidas"
           }
         }
       }
     },
-    "exchange.share" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compartilhar"
+    "exchange.filter.all": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas"
           }
         }
       }
     },
-    "exchange.share.attribution" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feito com o app Repetida"
+    "exchange.filter.shiny": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brilhantes"
           }
         }
       }
     },
-    "exchange.share.copied" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Copiado!"
+    "exchange.filter.teamChip %@ %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$lld"
           }
         }
       }
     },
-    "exchange.share.cta" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bora trocar?"
+    "exchange.filter.twoOrMore": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+2 ou mais"
           }
         }
       }
     },
-    "exchange.share.overflowCopies %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+%lld repetidas disponíveis"
+    "exchange.insight %lld %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld repetidas · %2$lld brilhantes"
           }
         }
       }
     },
-    "exchange.share.quantity %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "×%lld"
+    "exchange.noDuplicates": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma repetida ainda"
           }
         }
       }
     },
-    "exchange.share.sheetHeadline %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld figurinhas para troca"
+    "exchange.searchPlaceholder": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar figurinhas"
           }
         }
       }
     },
-    "exchange.share.showListPreview" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar prévia da lista"
+    "exchange.share": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartilhar"
           }
         }
       }
     },
-    "exchange.share.square" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Imagem quadrada"
+    "exchange.share.attribution": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feito com o app Repetida"
           }
         }
       }
     },
-    "exchange.share.story" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Imagem story"
+    "exchange.share.copied": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiado!"
           }
         }
       }
     },
-    "exchange.share.total %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Total: %lld figurinhas"
+    "exchange.share.cta": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bora trocar?"
           }
         }
       }
     },
-    "exchange.share.tradingHeadlineLine2" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disponíveis para troca"
+    "exchange.share.overflowCopies %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%lld repetidas disponíveis"
           }
         }
       }
     },
-    "exchange.share.tradingHeadlinePlural" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Minhas figurinhas"
+    "exchange.share.quantity %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "×%lld"
           }
         }
       }
     },
-    "exchange.share.tradingHeadlineSingular" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Minha figurinha"
+    "exchange.share.sheetHeadline %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld figurinhas para troca"
           }
         }
       }
     },
-    "exchange.share.whatsappHeader" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "📦 REPETIDAS"
+    "exchange.share.showListPreview": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar prévia da lista"
           }
         }
       }
     },
-    "exchange.sort" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ordenar"
+    "exchange.share.square": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imagem quadrada"
           }
         }
       }
     },
-    "exchange.sort.quantity" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quantidade"
+    "exchange.share.story": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imagem story"
           }
         }
       }
     },
-    "home.albumComplete" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Álbum completo!"
+    "exchange.share.total %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total: %lld figurinhas"
           }
         }
       }
     },
-    "home.albumCompletion" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Progresso do álbum"
+    "exchange.share.tradingHeadlineLine2": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disponíveis para troca"
           }
         }
       }
     },
-    "home.closestTeams" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quase completas"
+    "exchange.share.tradingHeadlinePlural": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minhas figurinhas"
           }
         }
       }
     },
-    "home.closestTeamSubtitle %@ %@" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ · %2$@"
+    "exchange.share.tradingHeadlineSingular": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minha figurinha"
           }
         }
       }
     },
-    "home.empty.goToMissing" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Marcar"
+    "exchange.share.whatsappHeader": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📦 REPETIDAS"
           }
         }
       }
     },
-    "home.empty.message" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Marque as figurinhas que você já tem."
+    "exchange.sort": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ordenar"
           }
         }
       }
     },
-    "home.empty.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Comece a completar o seu álbum!"
+    "exchange.sort.quantity": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quantidade"
           }
         }
       }
     },
-    "home.recent.addedToCollection" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "adicionada à coleção"
+    "home.albumComplete": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Álbum completo!"
           }
         }
       }
     },
-    "home.recent.duplicateRegistered" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "repetida registrada"
+    "home.albumCompletion": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Progresso do álbum"
           }
         }
       }
     },
-    "home.recent.duplicateRemoved" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "removida das repetidas"
+    "home.closestTeams": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quase completas"
           }
         }
       }
     },
-    "home.recent.removedFromCollection" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "removida da coleção"
+    "home.closestTeamSubtitle %@ %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
           }
         }
       }
     },
-    "home.recentlyUpdated" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atividade recente"
+    "home.empty.message": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marque as figurinhas que você já tem."
           }
         }
       }
     },
-    "home.stat.duplicates" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repetidas"
+    "home.empty.title": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comece a completar o seu álbum!"
           }
         }
       }
     },
-    "home.stat.missing" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faltando"
+    "home.recent.addedToCollection": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "adicionada à coleção"
           }
         }
       }
     },
-    "home.stat.teamsAccessibility %lld %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld de %2$lld seleções concluídas"
+    "home.recent.duplicateRegistered": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "repetida registrada"
           }
         }
       }
     },
-    "home.stat.teamsCompleted" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleções concluídas"
+    "home.recent.duplicateRemoved": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "removida das repetidas"
           }
         }
       }
     },
-    "home.teamFaltam %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faltam %lld"
+    "home.recent.removedFromCollection": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "removida da coleção"
           }
         }
       }
     },
-    "home.teamFaltaOne" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Falta 1"
+    "home.recentlyUpdated": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atividade recente"
           }
         }
       }
     },
-    "launch.failure.message" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O banco de dados local não abriu. Isso pode acontecer após atualizar o iOS. Toque em tentar novamente — seus dados do álbum podem ser resetados."
+    "home.stat.duplicates": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repetidas"
           }
         }
       }
     },
-    "launch.failure.retry" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tentar novamente"
+    "home.stat.missing": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faltando"
           }
         }
       }
     },
-    "launch.failure.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Não foi possível iniciar"
+    "home.stat.teamsAccessibility %lld %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld de %2$lld seleções concluídas"
           }
         }
       }
     },
-    "lookup.clearSearch" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Limpar busca"
+    "home.stat.teamsCompleted": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleções concluídas"
           }
         }
       }
     },
-    "lookup.noResults" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nenhuma figurinha encontrada"
+    "home.teamFaltam %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faltam %lld"
           }
         }
       }
     },
-    "lookup.searchPlaceholder" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar código, jogador ou seleção…"
+    "home.teamFaltaOne": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falta 1"
           }
         }
       }
     },
-    "lookup.searchPrompt" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Busque por código, jogador ou seleção"
+    "launch.failure.message": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O banco de dados local não abriu. Isso pode acontecer após atualizar o iOS. Toque em tentar novamente — seus dados do álbum podem ser resetados."
           }
         }
       }
     },
-    "missing.allOwned" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Parabéns! Você tem todas as figurinhas"
+    "launch.failure.retry": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentar novamente"
           }
         }
       }
     },
-    "missing.filter.all" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Todas"
+    "launch.failure.title": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível iniciar"
           }
         }
       }
     },
-    "missing.filter.teamChip %@ %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ · %2$lld"
+    "lookup.clearSearch": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limpar busca"
           }
         }
       }
     },
-    "missing.searchPlaceholder" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar figurinhas"
+    "lookup.noResults": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhuma figurinha encontrada"
           }
         }
       }
     },
-    "missing.sort.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ordenar faltando"
+    "lookup.searchPlaceholder": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar código, jogador ou seleção…"
           }
         }
       }
     },
-    "missing.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Figurinhas faltando"
+    "lookup.searchPrompt": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Busque por código, jogador ou seleção"
           }
         }
       }
     },
-    "section.history" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Grandes Momentos"
+    "section.history": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grandes Momentos"
           }
         }
       }
     },
-    "section.hosts" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Países-sede"
+    "section.hosts": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Países-sede"
           }
         }
       }
     },
-    "section.national" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleções"
+    "section.national": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleções"
           }
         }
       }
     },
-    "section.logo" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Logo"
+    "section.logo": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo"
           }
         }
       }
     },
-    "section.tournament" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Torneio"
+    "section.tournament": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Torneio"
           }
         }
       }
     },
-    "status.duplicate %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld repetidas"
+    "status.duplicate %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld repetidas"
           }
         }
       }
     },
-    "status.missing" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Falta"
+    "status.missing": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falta"
           }
         }
       }
     },
-    "status.owned" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tenho"
+    "status.owned": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tenho"
           }
         }
       }
     },
-    "status.ownedWithDuplicates %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tenho, %lld repetidas"
+    "status.ownedWithDuplicates %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tenho, %lld repetidas"
           }
         }
       }
     },
-    "tab.home" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Início"
+    "tab.home": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Início"
           }
         }
       }
     },
-    "tab.missing" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faltando"
+    "tab.repetidas": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repetidas"
           }
         }
       }
     },
-    "tab.repetidas" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repetidas"
+    "tab.teams": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seleções"
           }
         }
       }
     },
-    "tab.teams" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleções"
+    "teams.celebration.dismiss": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar"
           }
         }
       }
     },
-    "teams.celebration.dismiss" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fechar"
+    "teams.celebration.progress %lld %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld/%2$lld"
           }
         }
       }
     },
-    "teams.celebration.progress %lld %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld/%2$lld"
+    "teams.celebration.title": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seção completa!"
           }
         }
       }
     },
-    "teams.celebration.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seção completa!"
+    "teams.page.lock": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bloquear página"
           }
         }
       }
     },
-    "teams.page.lock" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bloquear página"
+    "teams.page.locked": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Página bloqueada — toque no cadeado para editar"
           }
         }
       }
     },
-    "teams.page.locked" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Página bloqueada — toque no cadeado para editar"
+    "teams.page.unlock": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear página"
           }
         }
       }
     },
-    "teams.page.unlock" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloquear página"
+    "teams.pager.dismissHint": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fechar dica"
           }
         }
       }
     },
-    "teams.pager.dismissHint" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fechar dica"
+    "teams.pager.next %@ %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próxima: %1$@ (%2$@)"
           }
         }
       }
     },
-    "teams.pager.next %@ %@" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próxima: %1$@ (%2$@)"
+    "teams.pager.previous %@ %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anterior: %1$@ (%2$@)"
           }
         }
       }
     },
-    "teams.pager.previous %@ %@" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anterior: %1$@ (%2$@)"
+    "teams.pager.swipeHint": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deslize para trocar de seleção ou toque no código acima"
           }
         }
       }
     },
-    "teams.pager.swipeHint" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deslize para trocar de seleção ou toque no código acima"
+    "teams.picker.open %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir seletor de seleção, %@"
           }
         }
       }
     },
-    "teams.picker.open %@" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abrir seletor de seleção, %@"
+    "teams.picker.title": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ir para seleção"
           }
         }
       }
     },
-    "teams.picker.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ir para seleção"
+    "teams.progress.label %lld %lld %lld": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld/%2$lld · %3$lld%%"
           }
         }
       }
     },
-    "teams.progress.label %lld %lld %lld" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld/%2$lld · %3$lld%%"
+    "teams.searchPlaceholder": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar seleção ou código"
           }
         }
       }
     },
-    "teams.searchPlaceholder" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar seleção ou código"
+    "teams.sort.albumPage": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Página do álbum"
           }
         }
       }
     },
-    "teams.sort.albumPage" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Página do álbum"
+    "teams.sort.completion": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conclusão (%)"
           }
         }
       }
     },
-    "teams.sort.completion" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conclusão (%)"
+    "teams.sort.name": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome (A–Z)"
           }
         }
       }
     },
-    "teams.sort.name" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nome (A–Z)"
+    "teams.sort.teamCode": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Código (A–Z)"
           }
         }
       }
     },
-    "teams.sort.teamCode" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Código (A–Z)"
+    "teams.sort.title": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ordenar seleções"
           }
         }
       }
     },
-    "teams.sort.title" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ordenar seleções"
+    "teams.weAreTitle %@": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We Are %@"
           }
         }
       }
     },
-    "teams.weAreTitle %@" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We Are %@"
+    "home.empty.goToTeams": {
+      "localizations": {
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ir para seleções"
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

@@ -10,7 +10,6 @@ protocol CollectionRepository: AnyObject {
     func setTeamOwned(_ owned: Bool, teamId: String)
     func ownedStickers() -> [StickerEntry]
     func duplicateStickers() -> [StickerEntry]
-    func missingStickers() -> [NormalizedSticker]
     func progress(for teamId: String) -> TeamProgress
     func albumProgress() -> AlbumProgress
     func teamsCompletionProgress(for section: AlbumSection) -> TeamsCompletionProgress

@@ -90,22 +90,14 @@ SLIDES = [
         subtitle="O jeito mais fácil de completar seu álbum de figurinhas!",
     ),
     Slide(
-        output="03-faltando.png",
-        kind=LayoutKind.PHONE,
-        capture="faltando.png",
-        title="Registre todas as suas\nfigurinhas!",
-        subtitle="Saiba exatamente o que falta para completar seu álbum.",
-        headline_align="left",
-    ),
-    Slide(
-        output="04-selecao-brasil.png",
+        output="03-selecao-brasil.png",
         kind=LayoutKind.PHONE,
         capture="team-bra.png",
         title="Veja cada seleção\nfigurinha por figurinha",
         subtitle="Acompanhe o progresso, figurinhas faltantes e repetidas.",
     ),
     Slide(
-        output="05-repetidas-troca.png",
+        output="04-repetidas-troca.png",
         kind=LayoutKind.PHONE,
         capture="repetidas.png",
         title="Saiba exatamente o que\nvocê tem para trocar",
@@ -113,14 +105,14 @@ SLIDES = [
         headline_align="left",
     ),
     Slide(
-        output="06-compartilhar.png",
+        output="05-compartilhar.png",
         kind=LayoutKind.SHARE,
         capture="share-story.png",
         title="Compartilhe suas repetidas\nem segundos",
         subtitle="Compartilhe sua lista em segundos",
     ),
     Slide(
-        output="07-baixe-repetida.png",
+        output="06-baixe-repetida.png",
         kind=LayoutKind.CLOSING,
         title="Pronto para completar\nseu álbum?",
         cta="Baixe Repetida",
@@ -129,7 +121,6 @@ SLIDES = [
 
 CAPTURE_ALIASES: dict[str, list[str]] = {
     "home.png": ["home-screen-10f5374a-e09c-415b-a4f5-9b88e251307c.png"],
-    "faltando.png": ["faltando-screen-d7e5653d-69a5-4659-9632-5c6ce795c16d.png"],
     "repetidas.png": ["repetidas-screen-19ac0bc8-819d-462f-a160-66ca0a4c8c51.png"],
     "team-bra.png": ["bra-team-screen-3c133976-0a33-46e9-ac84-433d9c783aa6.png"],
     "share-story.png": [

@@ -10,13 +10,12 @@ SwiftUI iOS app for tracking your **Panini FIFA World Cup 2026** sticker album. 
 
 ## Navigation
 
-Four bottom tabs (icon-only tab bar):
+Three bottom tabs (icon-only tab bar):
 
 | Tab | Label | Icon |
 |-----|-------|------|
 | Home | Início | house |
 | Teams | Seleções | flags |
-| Missing | Faltando | dashed square |
 | Repetidas | Repetidas | stacked squares |
 
 App-wide overlays:
@@ -36,7 +35,7 @@ App-wide overlays:
 ### Stat cards (tap to navigate)
 | Card | Goes to | Shows |
 |------|---------|-------|
-| Faltando | Faltando tab | Missing sticker count |
+| Faltando | Seleções tab | Missing sticker count |
 | Repetidas | Repetidas tab | Total duplicate copies |
 | Seleções concluídas | Seleções tab (sorted by completion) | Completed national teams / 48 |
 
@@ -74,11 +73,11 @@ Opened from list or Home “Quase lá”. Horizontal swipe between teams in curr
 - Team title + album page range
 - Progress bar + owned/total
 
-**Sticker grid** (4 columns, same `DSStickerTile` as Faltando)
+**Sticker grid** (4 columns)
 - Tap: toggle tenho / não tenho
 - Long press: add duplicate
 - Context menu: toggle owned, add/remove duplicate
-- Stickers ordered by album page within team (use **Faltando** tab to focus on missing)
+- Stickers ordered by album page within team
 
 **Locking**
 - Manual lock via toolbar
@@ -99,31 +98,6 @@ Opened from list or Home “Quase lá”. Horizontal swipe between teams in curr
 
 ---
 
-## Faltando (Missing)
-
-**Background:** flat near-black. Inline navigation title.
-
-### Controls
-- **Search** across sticker code, name, team name, team code
-- **Sort teams:** Página do álbum · Código FIFA · Nome (A–Z)
-- Stickers within each team always sort by album page
-
-### Team chips
-- Horizontal scroll of teams that still have missing stickers
-- “Todas” chip clears team focus
-- Tap a team chip to filter grid to that team only
-
-### Grid
-- Grouped by team with `DSTeamSectionHeader` (flag · name · code · pages)
-- Same 4-column `DSStickerTile` grid as team screen
-- Tap to mark as tenho; long press / menu to add duplicate
-
-### Empty states
-- All owned: checkmark seal + “Você tem todas as figurinhas!”
-- No search results: standard no-results copy
-
----
-
 ## Repetidas
 
 **Background:** flat near-black. Duplicate **inventory** — not a trading workflow.
@@ -132,7 +106,7 @@ Opened from list or Home “Quase lá”. Horizontal swipe between teams in curr
 - `N repetidas · M figurinhas únicas · K brilhantes`
 
 ### Duplicate grid
-- 3-column tiles grouped by team (Faltando-style section headers, no outer card)
+- 3-column tiles grouped by team (section headers, no outer card)
 - **One card per sticker** with copy count on the status badge (+N)
 - **Drag** a card to reveal dock: **Remover repetida** · **Adicionar repetida** (no tap, no context menu)
 - Chip filters: **Todas** · **Brilhantes** · **+2 ou mais** · team chips
@@ -199,7 +173,7 @@ Página do álbum · Código FIFA · Nome (A–Z) · Quantidade (sections by tot
 | `CollectionActivity` | Recent activity feed |
 
 **Bundled JSON:**
-- `panini-wc-2026-catalog.json` — stickers
+- `album-catalog.json` — stickers
 - `teams.json` — teams with album pages and sections
 
 **UserDefaults preferences:** sort orders, lock state, filter toggles, celebration flags, dismissed coach marks.
@@ -219,9 +193,9 @@ Página do álbum · Código FIFA · Nome (A–Z) · Quantidade (sections by tot
 
 ---
 
-## Tests (33 passing)
+## Tests
 
-Coverage includes catalog normalization, team/sort helpers, missing sort, exchange sort, flag emoji mapping, completion/lock celebration stores, and trade repository behavior.
+Coverage includes catalog normalization, team/sort helpers, exchange sort, flag emoji mapping, completion/lock celebration stores, and trade repository behavior.
 
 ---
 
