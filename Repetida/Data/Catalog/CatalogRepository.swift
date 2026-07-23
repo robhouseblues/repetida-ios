@@ -24,7 +24,7 @@ final class CatalogRepository {
 
     private func load(from bundle: Bundle) {
         guard
-            let catalogURL = bundle.url(forResource: "panini-wc-2026-catalog", withExtension: "json"),
+            let catalogURL = bundle.url(forResource: "album-catalog", withExtension: "json"),
             let teamsURL = bundle.url(forResource: "teams", withExtension: "json"),
             let catalogData = try? Data(contentsOf: catalogURL),
             let teamsData = try? Data(contentsOf: teamsURL),
