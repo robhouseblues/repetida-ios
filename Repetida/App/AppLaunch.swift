@@ -50,6 +50,7 @@ struct AppRootView: View {
                 LaunchLoadingView()
             }
         }
+        .environment(\.locale, Locale(identifier: "pt-BR"))
         .preferredColorScheme(.dark)
         .task {
             await bootstrapIfNeeded()

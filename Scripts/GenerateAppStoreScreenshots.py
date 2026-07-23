@@ -14,7 +14,6 @@ OUT_DIR = ROOT / "Marketing" / "AppStore" / "Screenshots"
 
 ASSET_DIRS = [
     ROOT / "Marketing" / "AppStore" / "Captures",
-    Path("/Users/fomer/.cursor/projects/Users-fomer-Documents-docs-personal-repetida/assets"),
 ]
 
 APP_ICON_CANDIDATES = [
@@ -38,6 +37,22 @@ SURFACE = (20, 20, 24)
 FONT_DISPLAY_BOLD = "/Library/Fonts/SF-Pro-Display-Bold.otf"
 FONT_TEXT_MEDIUM = "/Library/Fonts/SF-Pro-Text-Medium.otf"
 FONT_TEXT_SEMIBOLD = "/Library/Fonts/SF-Pro-Text-Semibold.otf"
+
+# System SF Pro variable font, used when the standalone SF Pro files are absent.
+FONT_SYSTEM_VARIABLE = "/System/Library/Fonts/SFNS.ttf"
+FONT_VARIATION_FALLBACKS = {
+    FONT_DISPLAY_BOLD: "Bold",
+    FONT_TEXT_MEDIUM: "Medium",
+    FONT_TEXT_SEMIBOLD: "Semibold",
+}
+
+
+def load_font(path: str, size: int) -> ImageFont.FreeTypeFont:
+    if Path(path).exists():
+        return ImageFont.truetype(path, size)
+    font = ImageFont.truetype(FONT_SYSTEM_VARIABLE, size)
+    font.set_variation_by_name(FONT_VARIATION_FALLBACKS[path])
+    return font
 
 
 class LayoutKind(Enum):
@@ -255,18 +270,6 @@ def draw_multiline(
     return cursor_y
 
 
-def draw_gold_accent(draw: ImageDraw.ImageDraw, y: int, *, align: str = "center", x: int = CANVAS_W // 2) -> None:
-    width = 96
-    height = 4
-    if align == "center":
-        left = x - width // 2
-    elif align == "left":
-        left = x
-    else:
-        left = x - width
-    draw.rounded_rectangle((left, y, left + width, y + height), radius=2, fill=GOLD)
-
-
 def rounded_mask(size: tuple[int, int], radius: int) -> Image.Image:
     mask = Image.new("L", size, 0)
     ImageDraw.Draw(mask).rounded_rectangle((0, 0, size[0] - 1, size[1] - 1), radius=radius, fill=255)
@@ -312,9 +315,9 @@ def compose_hero(slide: Slide) -> Image.Image:
     icon = icon.resize((icon_size, icon_size), Image.Resampling.LANCZOS)
     paste_image(canvas, icon, x=(CANVAS_W - icon_size) // 2, y=340, radius=48, shadow=True)
 
-    title_font = ImageFont.truetype(FONT_DISPLAY_BOLD, 68)
-    subtitle_font = ImageFont.truetype(FONT_TEXT_MEDIUM, 38)
-    stats_font = ImageFont.truetype(FONT_TEXT_SEMIBOLD, 30)
+    title_font = load_font(FONT_DISPLAY_BOLD, 68)
+    subtitle_font = load_font(FONT_TEXT_MEDIUM, 38)
+    stats_font = load_font(FONT_TEXT_SEMIBOLD, 30)
 
     title_bottom = draw_multiline(
         draw,
@@ -325,7 +328,6 @@ def compose_hero(slide: Slide) -> Image.Image:
         fill=TITLE,
         max_width=CANVAS_W - 140,
     )
-    draw_gold_accent(draw, title_bottom + 18)
 
     subtitle_bottom = draw_multiline(
         draw,
@@ -363,8 +365,8 @@ def compose_hero(slide: Slide) -> Image.Image:
             outline=(*GOLD, 80),
             width=2,
         )
-        code_font = ImageFont.truetype(FONT_TEXT_SEMIBOLD, 34)
-        name_font = ImageFont.truetype(FONT_TEXT_MEDIUM, 22)
+        code_font = load_font(FONT_TEXT_SEMIBOLD, 34)
+        name_font = load_font(FONT_TEXT_MEDIUM, 22)
         draw.text((x1 + 20, row_y + 24), label + "1", font=code_font, fill=GOLD)
         draw.text((x1 + 20, row_y + 72), "Emblem", font=name_font, fill=SUBTITLE)
 
@@ -381,7 +383,7 @@ def compose_closing(slide: Slide) -> Image.Image:
     icon = icon.resize((icon_size, icon_size), Image.Resampling.LANCZOS)
     paste_image(canvas, icon, x=(CANVAS_W - icon_size) // 2, y=720, radius=56, shadow=True)
 
-    title_font = ImageFont.truetype(FONT_DISPLAY_BOLD, 72)
+    title_font = load_font(FONT_DISPLAY_BOLD, 72)
     draw_multiline(
         draw,
         slide.title,
@@ -392,7 +394,7 @@ def compose_closing(slide: Slide) -> Image.Image:
         max_width=CANVAS_W - 120,
     )
 
-    cta_font = ImageFont.truetype(FONT_TEXT_SEMIBOLD, 34)
+    cta_font = load_font(FONT_TEXT_SEMIBOLD, 34)
     cta = slide.cta.upper()
     padding_x, padding_y = 56, 22
     text_w = draw.textlength(cta, font=cta_font)
@@ -409,7 +411,7 @@ def compose_closing(slide: Slide) -> Image.Image:
     )
     draw.text((pill_x + padding_x, pill_y + padding_y - 2), cta, font=cta_font, fill=TITLE)
 
-    brand_font = ImageFont.truetype(FONT_TEXT_MEDIUM, 28)
+    brand_font = load_font(FONT_TEXT_MEDIUM, 28)
     draw.text((CANVAS_W // 2 - draw.textlength("Repetida", font=brand_font) // 2, 1560), "Repetida", font=brand_font, fill=GOLD)
 
     return canvas
@@ -420,8 +422,8 @@ def draw_phone_headline(canvas: Image.Image, slide: Slide) -> int:
     margin = 72 if slide.headline_align == "left" else CANVAS_W // 2
     anchor = slide.headline_align
 
-    title_font = ImageFont.truetype(FONT_DISPLAY_BOLD, 62)
-    subtitle_font = ImageFont.truetype(FONT_TEXT_MEDIUM, 34)
+    title_font = load_font(FONT_DISPLAY_BOLD, 62)
+    subtitle_font = load_font(FONT_TEXT_MEDIUM, 34)
 
     title_bottom = draw_multiline(
         draw,
@@ -433,8 +435,6 @@ def draw_phone_headline(canvas: Image.Image, slide: Slide) -> int:
         align=anchor,
         max_width=CANVAS_W - 144,
     )
-    draw_gold_accent(draw, title_bottom + 12, align=anchor, x=margin)
-
     if slide.subtitle:
         draw_multiline(
             draw,
@@ -494,7 +494,7 @@ def compose_share(slide: Slide) -> Image.Image:
     paste_image(canvas, card, x=x, y=y, radius=28, shadow=True)
 
     draw = ImageDraw.Draw(canvas)
-    hint_font = ImageFont.truetype(FONT_TEXT_MEDIUM, 26)
+    hint_font = load_font(FONT_TEXT_MEDIUM, 26)
     hint = "📦 Lista pronta para WhatsApp"
     draw.text(
         ((CANVAS_W - draw.textlength(hint, font=hint_font)) // 2, y + card_h + 36),

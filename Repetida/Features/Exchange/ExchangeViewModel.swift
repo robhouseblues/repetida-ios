@@ -4,50 +4,62 @@ import Foundation
 final class ExchangeViewModel {
     var sortOrder: ExchangeSortOrder = .albumPage
 
-    func allDuplicateItems(
-        catalog: CatalogRepository,
-        collection: CollectionRepository
-    ) -> [ExchangeStickerItem] {
-        ExchangeFilterHelper.allDuplicateItems(catalog: catalog, collection: collection)
-    }
+    private(set) var allItems: [ExchangeStickerItem] = []
+    private(set) var groups: [(team: Team, stickers: [ExchangeStickerItem])] = []
+    private(set) var teamChips: [ExchangeTeamChip] = []
+    private(set) var insightText = ""
 
-    func groupedSections(
+    private var isLoaded = false
+    private var lastChangeToken = -1
+    private var lastQuery = ""
+    private var lastFilter: ExchangeQuickFilter = .all
+    private var lastSortOrder: ExchangeSortOrder = .albumPage
+
+    func refresh(
         catalog: CatalogRepository,
         collection: CollectionRepository,
         query: String,
         filter: ExchangeQuickFilter
-    ) -> [(team: Team, stickers: [ExchangeStickerItem])] {
-        ExchangeFilterHelper.groupedDuplicates(
+    ) {
+        let changeToken = collection.changeToken
+        guard !isLoaded
+            || changeToken != lastChangeToken
+            || query != lastQuery
+            || filter != lastFilter
+            || sortOrder != lastSortOrder
+        else { return }
+
+        isLoaded = true
+        lastChangeToken = changeToken
+        lastQuery = query
+        lastFilter = filter
+        lastSortOrder = sortOrder
+
+        allItems = ExchangeFilterHelper.allDuplicateItems(catalog: catalog, collection: collection)
+
+        let totalCopies = allItems.reduce(0) { $0 + $1.duplicateCount }
+        let shiny = allItems.filter(\.sticker.isShiny).reduce(0) { $0 + $1.duplicateCount }
+        insightText = L10n.exchangeInsight(totalCopies, allItems.count, shiny)
+
+        let chipItems = ExchangeFilterHelper.filtered(
+            allItems,
             catalog: catalog,
-            collection: collection,
             query: query,
-            order: sortOrder,
+            filter: .all
+        )
+        teamChips = ExchangeSortHelper.groupedByTeam(chipItems, catalog: catalog, order: sortOrder)
+            .map { group in
+                let copies = group.stickers.reduce(0) { $0 + $1.duplicateCount }
+                return ExchangeTeamChip(team: group.team, duplicateCount: copies)
+            }
+
+        let filtered = ExchangeFilterHelper.filtered(
+            allItems,
+            catalog: catalog,
+            query: query,
             filter: filter
         )
-    }
-
-    func teamChips(
-        catalog: CatalogRepository,
-        collection: CollectionRepository,
-        query: String
-    ) -> [ExchangeTeamChip] {
-        ExchangeFilterHelper.teamChips(
-            catalog: catalog,
-            collection: collection,
-            query: query,
-            order: sortOrder
-        )
-    }
-
-    func insightText(
-        catalog: CatalogRepository,
-        collection: CollectionRepository
-    ) -> String {
-        let items = allDuplicateItems(catalog: catalog, collection: collection)
-        let totalCopies = items.reduce(0) { $0 + $1.duplicateCount }
-        let uniqueStickers = items.count
-        let shiny = items.filter(\.sticker.isShiny).reduce(0) { $0 + $1.duplicateCount }
-        return L10n.exchangeInsight(totalCopies, uniqueStickers, shiny)
+        groups = ExchangeSortHelper.groupedByTeam(filtered, catalog: catalog, order: sortOrder)
     }
 
     func whatsAppText(
@@ -56,12 +68,7 @@ final class ExchangeViewModel {
         query: String,
         filter: ExchangeQuickFilter
     ) -> String {
-        let groups = groupedSections(
-            catalog: catalog,
-            collection: collection,
-            query: query,
-            filter: filter
-        )
+        refresh(catalog: catalog, collection: collection, query: query, filter: filter)
         let totalCopies = groups
             .flatMap(\.stickers)
             .reduce(0) { $0 + $1.duplicateCount }
