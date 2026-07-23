@@ -1,0 +1,27 @@
+---
+description: Keep each branch to a single concern; never mix unrelated work
+alwaysApply: true
+---
+
+# One concern per branch
+
+Never mix unrelated features, fixes, refactors, or chores on the same branch or in the same PR.
+
+- One branch = one purpose (e.g. `bugfix/exchange-perf` **or** `bugfix/remove-copa-fifa-screenshots`, not both).
+- If mid-task you discover separate work, stop and open a new branch from the appropriate base.
+- Do not commit marketing/docs/tooling changes alongside app runtime fixes unless they are required for that same fix.
+- Prefer `feature/…`, `bugfix/…`, `chore/…`, `docs/…` names that match the single concern.
+
+```text
+❌ BAD
+bugfix/remove-copa-fifa-screenshots
+  + screenshot copy updates
+  + Exchange drag performance rewrite
+  + share-sheet ImageRenderer cache
+
+✅ GOOD
+bugfix/remove-copa-fifa-screenshots   → screenshots / marketing only
+bugfix/exchange-drag-performance     → Repetidas perf only
+```
+
+Before committing or opening a PR, confirm every changed file serves that branch’s one purpose. If not, split.

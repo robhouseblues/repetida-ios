@@ -1,0 +1,27 @@
+---
+description: Apply SOLID principles when designing or changing code
+alwaysApply: true
+---
+
+# SOLID principles
+
+Follow SOLID when writing or refactoring code. Prefer small, focused types over kitchen-sink modules.
+
+- **S — Single Responsibility**: One reason to change per type/module. Split UI, data access, and domain logic.
+- **O — Open/Closed**: Extend via new types/composition; avoid editing stable code paths for every variant.
+- **L — Liskov Substitution**: Subtypes must honor the parent contract; no surprise behavior in overrides.
+- **I — Interface Segregation**: Prefer narrow protocols/interfaces over fat ones callers only partly use.
+- **D — Dependency Inversion**: Depend on abstractions (`CollectionRepository`), not concrete SwiftData types, at feature boundaries.
+
+```swift
+// ❌ BAD — view owns persistence + filtering + drag + share rendering
+struct ExchangeView: View { /* scans catalog, saves models, builds share images */ }
+
+// ✅ GOOD — view composes focused collaborators
+struct ExchangeView: View {
+    @State private var viewModel = ExchangeViewModel() // list derivation
+    @State private var dragController = ExchangeDragController() // drag only
+}
+```
+
+When a change would force a type to grow a second responsibility, extract first.
